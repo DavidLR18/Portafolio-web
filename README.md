@@ -9,7 +9,8 @@ El sitio es HTML, CSS y JavaScript sin frameworks. Cada vez que se suben cambios
 | Carpeta | Contenido |
 |---|---|
 | `sitio/` | El sitio publicado: página principal, 9 casos e imágenes. |
-| `herramientas/` | `generar-casos.pl` (textos de los casos) y `descripciones.pl` (textos del visor). |
+| `hoja-de-vida/` | Hojas de vida en HTML (integral, diseño y docencia) y sus PDF en `pdf/`. |
+| `herramientas/` | `generar-casos.pl` (textos de los casos), `descripciones.pl` (textos del visor) y `exportar-hv.sh` (PDF de las hojas de vida). |
 | `docs/` | Sistema de diseño. |
 | `diseno/` | Archivo de diseño `.pen`. |
 | `direcciones/` | Las tres direcciones visuales exploradas al inicio. |
@@ -27,3 +28,11 @@ Vuelve a crear las 9 páginas de `sitio/casos/` a partir de los textos de `herra
 ## Temas de color
 
 El sitio abre en verde. La versión morada se ve agregando `?tema=morado` a la dirección. El tema por defecto está en `sitio/assets/js/tema.js`.
+
+## Exportar las hojas de vida
+
+```bash
+sh herramientas/exportar-hv.sh
+```
+
+Crea los PDF de `hoja-de-vida/` con Google Chrome y copia la versión integral a `sitio/assets/David-Londono-Hoja-de-Vida.pdf`, que es la que se descarga desde el sitio.
