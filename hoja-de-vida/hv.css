@@ -1,0 +1,91 @@
+/* CV · same tokens and type as the portfolio (docs/design-system.md), sized for US Letter print */
+@page{size:Letter;margin:0}
+:root{
+  --lime:#B7D900; --forest:#2E6B12; --forest-ink:#24560E;
+  --paper:#F1F2EC; --sage:#E6E9DD;
+  --ink:#111111; --ink-2:#55545C; --ink-3:#6E6D76; --line:rgba(17,17,17,.12);
+  --sans:"Raleway",system-ui,sans-serif; --serif:"Instrument Serif",Georgia,serif;
+  --pad:0.55in;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:#d9dbd2}
+body{font:400 8.5pt/1.42 var(--sans);color:var(--ink);-webkit-font-smoothing:antialiased;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+img{display:block}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+
+.page{position:relative;width:8.5in;height:11in;overflow:hidden;background:#fff;margin:0 auto;padding:var(--pad);display:flex;flex-direction:column}
+@media screen{.page{margin:24px auto;box-shadow:0 20px 50px -20px rgba(0,0,0,.35)}}
+@media print{html{background:#fff}.page{margin:0;break-after:page}}
+/* the hero glow of the site, reduced to the top of the page */
+/* radial glows only, each fading to transparent well inside the box, so no edge ever shows */
+.page::before{content:"";position:absolute;inset:0 0 auto;height:4.2in;z-index:0;pointer-events:none;
+  background:radial-gradient(3.2in 2in at 0.4in 2.2in,rgba(183,217,0,.30),rgba(183,217,0,0)),radial-gradient(3in 1.8in at 7.9in 0.2in,rgba(46,107,18,.14),rgba(46,107,18,0))}
+.page>*{position:relative;z-index:1}
+
+/* header */
+.head{display:grid;grid-template-columns:1fr 1.4in;gap:.3in;align-items:end}
+.logo{height:18px;width:auto;margin-bottom:.16in}
+.head h1{font:500 27pt/1 var(--sans);letter-spacing:-.035em}
+.head .role{margin-top:5px;font:500 14pt/1.15 var(--sans);letter-spacing:-.02em}
+.head .role em{font:italic 400 1.2em/1 var(--serif);letter-spacing:-.01em;color:var(--forest-ink)}
+.head .tag{margin-top:6px;font:500 9pt/1.4 var(--sans);color:var(--ink-2)}
+.contact{display:flex;flex-wrap:wrap;gap:3px 14px;margin-top:10px;font:500 8.2pt/1.3 var(--sans)}
+.contact li{display:flex;align-items:center;gap:6px}
+.contact li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 2px rgba(46,107,18,.18)}
+.contact b{font-weight:600}
+.portrait{width:1.4in;height:1.68in;border-radius:22px;overflow:hidden;background:radial-gradient(70% 60% at 30% 85%,rgba(183,217,0,.5),transparent 70%),radial-gradient(60% 60% at 85% 15%,rgba(46,107,18,.2),transparent 70%),var(--sage);display:flex;align-items:flex-end;justify-content:center}
+.portrait img{width:112%;max-width:none;height:auto;margin-bottom:-6%}
+
+/* stats band between hairlines, never cards */
+.proof{display:grid;grid-template-columns:repeat(4,1fr);margin-top:.18in;border-block:1px solid var(--line)}
+.proof div{padding:6px 0 7px}
+.proof div+div{padding-left:14px;border-left:1px solid var(--line)}
+.proof strong{display:block;font:300 17pt/1 var(--sans);letter-spacing:-.04em}
+.proof strong em{font:italic 400 1.05em/1 var(--serif);color:var(--forest-ink)}
+.proof span{display:block;margin-top:3px;font:500 7.8pt/1.3 var(--sans);color:var(--ink-2)}
+
+/* body */
+.body{display:grid;grid-template-columns:1fr 2.05in;gap:.3in;margin-top:.17in;flex:1;min-height:0}
+.eyebrow{display:block;font:italic 400 10.5pt/1.2 var(--serif);color:var(--ink-2);margin-bottom:4px}
+section+section{margin-top:.14in}
+.summary{font:400 8.9pt/1.48 var(--sans);color:var(--ink)}
+.summary b{font-weight:600}
+
+.job{padding:7px 0 0}
+.job+.job{margin-top:5px;border-top:1px solid var(--line);padding-top:6px}
+.job header{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.job h3{font:600 9.5pt/1.25 var(--sans);letter-spacing:-.01em}
+.job h3 span{font-weight:500;color:var(--ink-2)}
+.job time{flex:none;font:500 8.2pt/1 var(--sans);color:var(--ink-3);white-space:nowrap}
+.job ul{margin-top:4px}
+.job li{position:relative;padding-left:12px;color:var(--ink-2)}
+.job li+li{margin-top:2px}
+.job li::before{content:"";position:absolute;left:0;top:.62em;width:5px;height:5px;border-radius:50%;background:var(--lime)}
+.job li b{color:var(--ink);font-weight:600}
+.job p.one{margin-top:3px;color:var(--ink-2)}
+
+.side section{font-size:8.3pt}
+.chips{display:flex;flex-wrap:wrap;gap:4px}
+.chips li{font:500 7.4pt/1 var(--sans);padding:4px 7px;border-radius:999px;border:1px solid var(--line);background:#fff}
+.chips.soft li{background:var(--paper);border-color:transparent}
+.edu li+li{margin-top:5px}
+.edu b{display:block;font:600 8.5pt/1.3 var(--sans)}
+.edu span{display:block;color:var(--ink-2);font-size:8.4pt}
+.cases li{display:flex;gap:8px;align-items:center}
+.cases li+li{margin-top:6px}
+.cases img{width:30px;height:30px;border-radius:8px;object-fit:cover;object-position:top;flex:none}
+.cases b{display:block;font:600 8.6pt/1.25 var(--sans)}
+.cases span{display:block;font-size:7.8pt;color:var(--ink-2)}
+.link{display:block;margin-top:7px;font:600 7.6pt/1.3 var(--sans);color:var(--forest-ink);overflow-wrap:anywhere}
+.note{color:var(--ink-2)}
+.list li{position:relative;padding-left:12px;color:var(--ink-2)}
+.list li+li{margin-top:3px}
+.list li::before{content:"";position:absolute;left:0;top:.62em;width:5px;height:5px;border-radius:50%;background:var(--lime)}
+.list li b{color:var(--ink);font-weight:600}
+
+.foot{display:flex;justify-content:space-between;margin-top:.14in;padding-top:7px;border-top:1px solid var(--line);font:500 7.8pt/1 var(--sans);color:var(--ink-3)}
+
+/* page 2 (teaching version) */
+.cols2{display:grid;grid-template-columns:1fr 1fr;gap:.32in}
+.cols2 section+section{margin-top:0}
