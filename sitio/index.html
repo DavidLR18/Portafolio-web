@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>David Londoño R. — Diseñador de Marca y Web</title>
+<meta name="description" content="Portafolio de David Londoño R., diseñador visual y especialista en Gerencia de Marca en Medellín. Sitios web, campañas B2B, editorial y sistemas de marca desde 2009.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="David Londoño R. — Diseñador de Marca y Web">
+<meta property="og:description" content="Campañas, sistemas de marca y sitios en Webflow. Portafolio 2009–2026, Medellín, Colombia.">
+<meta property="og:image" content="assets/img/compartir.jpg">
+<meta property="og:locale" content="es_CO">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/logo/icono-negro.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Raleway:ital,wght@0,200..800;1,400&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/img/david-recorte.png" fetchpriority="high">
+<style>
+@layer reset, tokens, base, components;
+
+@layer reset{
+  *,*::before,*::after{box-sizing:border-box;margin:0}
+  img{display:block;max-width:100%;height:auto}
+  button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+  ul,ol{list-style:none;padding:0}
+}
+
+@layer tokens{
+  :root{
+    /* primitives */
+    --lime:#B7D900; --forest:#2E6B12; --forest-ink:#24560E;
+    --paper:#F1F2EC; --white:#FFFFFF; --sage:#E6E9DD; --night:#121410;
+    --ink-900:#111111; --ink-600:#55545C; --ink-400:#6E6D76;
+    /* semantic */
+    --color-bg:var(--paper); --color-surface:var(--white); --color-card:var(--sage);
+    --color-ink:var(--ink-900); --color-ink-2:var(--ink-600); --color-ink-3:var(--ink-400);
+    --color-line:rgba(17,17,17,.12); --color-accent:var(--forest-ink); --color-highlight:var(--lime);
+    --color-dark:var(--night); --color-on-dark:var(--white); --color-on-dark-2:rgba(255,255,255,.72); --color-line-dark:rgba(255,255,255,.16);
+    --glow-lime:rgba(183,217,0,.45); --glow-forest:rgba(46,107,18,.22);
+    --sans:"Raleway",system-ui,sans-serif; --serif:"Instrument Serif",Georgia,serif;
+    --gutter:clamp(16px,4.4vw,64px); --max:1312px;
+    --section:clamp(64px,9vw,128px);
+    --r-xl:clamp(28px,3vw,40px); --r-lg:clamp(20px,2.2vw,32px); --r-md:24px; --r-sm:14px; --pill:999px;
+    --ease:cubic-bezier(.2,.7,.2,1);
+  }
+}
+
+@layer base{
+  html{background:var(--color-bg);color:var(--color-ink);scroll-padding-top:88px}
+  @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+  body{font:400 17px/1.6 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit}
+  :focus-visible{outline:3px solid var(--color-accent);outline-offset:3px;border-radius:6px}
+  .container{width:min(100% - 2*var(--gutter),var(--max));margin-inline:auto}
+  .skip{position:absolute;left:16px;top:-60px;z-index:50;background:var(--color-ink);color:var(--color-on-dark);padding:12px 18px;border-radius:var(--pill);text-decoration:none;font-weight:600}
+  .skip:focus{top:16px}
+  .eyebrow{display:block;font:italic 400 clamp(19px,1.6vw,22px)/1.2 var(--serif);color:var(--color-ink-2)}
+  .h2{font:500 clamp(34px,4vw,56px)/1.06 var(--sans);letter-spacing:-.035em;margin-top:10px;text-wrap:balance}
+  .h2 em{font:italic 400 1.18em/1 var(--serif);letter-spacing:-.01em;color:var(--color-accent)}
+  .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+}
+
+@layer components{
+  /* buttons */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 28px;border-radius:var(--pill);font:600 16px/1 var(--sans);text-decoration:none;transition:transform .2s var(--ease),background-color .2s var(--ease)}
+  .btn svg{width:18px;height:18px;flex:none}
+  .btn-solid{background:var(--color-ink);color:var(--color-on-dark)}
+  .btn-line{border:1px solid var(--color-ink)}
+  .btn-line:hover{background:var(--color-surface)}
+  .btn:hover{transform:translateY(-2px)}
+
+  /* header: stays on screen, marks the section you are reading */
+  .top{position:sticky;top:0;z-index:30;transition:background-color .25s var(--ease),box-shadow .25s var(--ease)}
+  .top.scrolled{background:rgba(241,242,236,.88);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--color-line)}
+  .top .container{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-block:20px;transition:padding .25s var(--ease)}
+  .top.scrolled .container{padding-block:12px}
+  .logo img{height:32px;width:auto}
+  .top nav{display:flex;gap:4px;padding:5px;border-radius:var(--pill);background:rgba(255,255,255,.6);border:1px solid var(--color-line)}
+  .top nav a{display:flex;align-items:center;gap:8px;min-height:40px;padding:0 16px;border-radius:var(--pill);text-decoration:none;font:600 15px/1 var(--sans);color:var(--color-ink-2);transition:background-color .2s var(--ease),color .2s var(--ease)}
+  .top nav a:hover{color:var(--color-ink);background:rgba(255,255,255,.8)}
+  .top nav a[aria-current="true"]{background:var(--color-ink);color:var(--color-on-dark)}
+  .top nav a small{font:600 11px/1 var(--sans);color:var(--color-ink-3)}
+  .top nav a[aria-current="true"] small{color:var(--color-on-dark-2)}
+  .actions{display:flex;align-items:center;gap:8px}
+  .top .btn{min-height:46px;padding:0 20px;font-size:14px}
+  .top .btn-line{background:rgba(255,255,255,.5)}
+  .menu-btn{display:none;width:46px;height:46px;border-radius:var(--pill);background:var(--color-surface);border:1px solid var(--color-line);align-items:center;justify-content:center}
+  .menu-btn svg{width:20px;height:20px}
+  .menu-btn .x,.top.open .menu-btn .bars{display:none}
+  .top.open .menu-btn .x{display:block}
+  .menu-extra{display:none}
+
+  /* hero: centered portrait without a frame, copy at the four corners */
+  .hero{position:relative;isolation:isolate;padding-top:clamp(8px,1.5vw,20px)}
+  .hero::before{content:"";position:absolute;z-index:-1;inset:-140px 0 0;pointer-events:none;
+    background:radial-gradient(42% 52% at 12% 78%,var(--glow-lime),transparent 70%),radial-gradient(38% 50% at 90% 28%,var(--glow-forest),transparent 70%),radial-gradient(34% 30% at 50% 6%,rgba(255,255,255,.9),transparent 70%)}
+  .hero-head{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:18px;text-align:center}
+  .tagline{display:inline-flex;align-items:center;gap:10px;font:500 15px/1.2 var(--sans)}
+  .tagline img{height:18px;width:auto}
+  .hero h1{max-width:1200px;font:500 clamp(40px,5.6vw,84px)/1 var(--sans);letter-spacing:-.042em;text-wrap:balance}
+  .hero h1 em{display:block;font:italic 400 1.2em/.95 var(--serif);letter-spacing:-.02em;color:var(--color-accent)}
+  .hero-stage{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,500px) minmax(0,1fr);grid-template-rows:auto 1fr auto;
+    grid-template-areas:"tl photo tr" ". photo ." "bl photo br";column-gap:clamp(24px,3vw,48px);margin-top:clamp(-40px,-2.4vw,-12px)}
+  .portrait{grid-area:photo;position:relative;z-index:1;margin:0;align-self:end}
+  .portrait img{width:100%;height:auto;max-height:min(60svh,580px);object-fit:contain;object-position:bottom;
+    -webkit-mask-image:linear-gradient(#000 74%,transparent 99%);mask-image:linear-gradient(#000 74%,transparent 99%)}
+  .status{grid-area:tl;justify-self:start;align-self:start;margin-top:clamp(56px,7vw,110px);display:inline-flex;align-items:center;gap:10px;padding:9px 16px 9px 12px;border-radius:var(--pill);background:var(--color-surface);border:1px solid var(--color-line);font:500 14px/1.2 var(--sans)}
+  .status i{width:10px;height:10px;border-radius:50%;background:var(--color-highlight);box-shadow:0 0 0 1.5px var(--forest)}
+  .hero .lead{grid-area:tr;align-self:start;margin-top:clamp(56px,7vw,110px);max-width:340px;font-size:clamp(17px,1.35vw,20px);line-height:1.5;color:var(--color-ink-2)}
+  .hero .lead b{color:var(--color-ink);font-weight:600}
+  .peek{grid-area:bl;align-self:end;display:flex;align-items:center;gap:14px;max-width:320px;padding-bottom:clamp(32px,5vw,72px);text-decoration:none;font-size:14px;line-height:1.4;color:var(--color-ink-2)}
+  .peek b{display:block;color:var(--color-ink);font-weight:600}
+  .peek .thumbs{display:flex;flex:none}
+  .peek .thumbs img{width:48px;height:48px;border-radius:50%;object-fit:cover;object-position:top;border:3px solid var(--color-bg);margin-left:-14px;background:var(--color-card)}
+  .peek .thumbs img:first-child{margin-left:0}
+  .peek:hover b{text-decoration:underline;text-underline-offset:3px}
+  .ctas{display:flex;flex-wrap:wrap;gap:12px}
+  .hero .ctas{grid-area:br;align-self:end;justify-self:end;flex-direction:column;align-items:flex-end;padding-bottom:clamp(32px,5vw,72px)}
+
+  /* proof */
+  .proof{display:flex;align-items:center;justify-content:space-between;gap:24px 40px;flex-wrap:wrap;padding-block:32px;border-block:1px solid var(--color-line)}
+  .proof dl{display:flex;gap:clamp(24px,3vw,40px);flex-wrap:wrap}
+  .proof dl div{display:flex;align-items:center;gap:14px}
+  .proof dt{order:2;max-width:130px;font-size:14px;line-height:1.35;color:var(--color-ink-2)}
+  .proof dd{font:300 40px/1 var(--sans);letter-spacing:-.04em}
+  .clients{display:flex;gap:28px;flex-wrap:wrap;font:700 17px/1 var(--sans);letter-spacing:-.02em;color:var(--color-ink-3)}
+
+  /* work */
+  .work{padding-top:var(--section)}
+  .work-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap}
+  .filters{display:flex;gap:6px;padding:5px;border-radius:var(--pill);background:var(--color-card);overflow-x:auto;scrollbar-width:none;max-width:100%}
+  .filters button{flex:none;min-height:40px;padding:0 16px;border-radius:var(--pill);font:600 14px/1 var(--sans);color:var(--color-ink-2);transition:background-color .2s var(--ease)}
+  .filters button[aria-pressed="true"]{background:var(--color-surface);color:var(--color-ink)}
+  .grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:clamp(20px,2vw,24px);margin-top:48px}
+  .case{grid-column:span 4;display:flex;flex-direction:column;gap:16px;text-decoration:none}
+  .case[hidden]{display:none}
+  .case .media{border-radius:var(--r-md);overflow:hidden;background:var(--color-card);aspect-ratio:4/3.4}
+  .case img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .5s var(--ease)}
+  .case:hover img{transform:scale(1.03)}
+  .case .info{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+  .case h3{font:600 20px/1.25 var(--sans);letter-spacing:-.015em}
+  .case p{margin-top:6px;font-size:15px;line-height:1.4;color:var(--color-ink-2)}
+  .case .yr{font:600 15px/1.3 var(--sans);color:var(--color-ink-3)}
+  /* featured layout only when showing everything */
+  .grid:not(.is-filtered) .case.feature{grid-column:span 8;grid-row:span 2}
+  .grid:not(.is-filtered) .case.feature .media{aspect-ratio:auto;flex:1;min-height:420px}
+  .grid:not(.is-filtered) .case.feature h3{font-size:28px;letter-spacing:-.03em}
+  .grid:not(.is-filtered) .case.side .media{aspect-ratio:16/9.6}
+  .more{display:flex;justify-content:center;margin-top:48px}
+
+  /* process */
+  .process{margin-top:var(--section)}
+  .panel{border-radius:var(--r-xl);padding:clamp(44px,6vw,88px) clamp(24px,5vw,72px);color:var(--color-on-dark);
+    background:radial-gradient(55% 65% at 90% 0%,rgba(183,217,0,.2),transparent 70%),var(--color-dark)}
+  .panel-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px 48px;flex-wrap:wrap}
+  .panel .eyebrow{color:var(--color-on-dark-2)}
+  .panel .h2 em{color:var(--color-highlight)}
+  .panel-head p{max-width:360px;color:var(--color-on-dark-2)}
+  .steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:clamp(40px,5vw,64px)}
+  .step{padding:32px 40px 8px;border-top:1px solid var(--color-line-dark)}
+  .step:first-child{padding-left:0}
+  .step+.step{border-left:1px solid var(--color-line-dark)}
+  .step .top-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:56px}
+  .step .n{font:600 15px/1 var(--sans);color:var(--color-highlight)}
+  .step svg{width:22px;height:22px;color:var(--color-on-dark-2)}
+  .step h3{font:500 32px/1.1 var(--sans);letter-spacing:-.03em}
+  .step p{margin-top:12px;font-size:16px;line-height:1.55;color:var(--color-on-dark-2)}
+
+  /* timeline */
+  .timeline{padding-top:var(--section)}
+  .years{display:flex;align-items:center;gap:clamp(14px,2vw,24px);margin-top:10px;font:200 clamp(56px,8.4vw,120px)/.9 var(--sans);letter-spacing:-.05em}
+  .years i{width:clamp(60px,14vw,200px);height:clamp(5px,.6vw,8px);border-radius:8px;background:linear-gradient(90deg,var(--lime),var(--forest))}
+  .stages{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:48px}
+  .stage{display:flex;flex-direction:column;gap:20px;padding:20px;border-radius:var(--r-md);background:var(--color-card)}
+  .stage.now{background:var(--color-surface);box-shadow:inset 0 0 0 2px var(--lime)}
+  .stage .when{display:flex;justify-content:space-between;align-items:center;font:700 15px/1 var(--sans)}
+  .stage .badge{padding:5px 10px;border-radius:var(--pill);background:var(--lime);font-size:12px}
+  .stage .thumb{height:180px;border-radius:var(--r-sm);overflow:hidden;background:var(--color-dark)}
+  .stage .thumb img{width:100%;height:100%;object-fit:cover;object-position:top}
+  .stage .thumb.text{display:flex;align-items:flex-end;padding:16px;background:radial-gradient(100% 100% at 20% 100%,rgba(183,217,0,.35),transparent 70%),var(--color-dark);font:italic 400 30px/1 var(--serif);color:var(--color-on-dark)}
+  .stage h3{font:600 18px/1.3 var(--sans);letter-spacing:-.015em}
+  .stage p{margin-top:-12px;font-size:15px;line-height:1.5;color:var(--color-ink-2)}
+
+  /* profile */
+  .profile{display:grid;grid-template-columns:minmax(0,520px) minmax(0,1fr);gap:clamp(40px,6vw,80px);align-items:center;padding-top:var(--section)}
+  .photo{position:relative;aspect-ratio:520/600;border-radius:var(--r-xl);overflow:hidden;background:radial-gradient(70% 50% at 30% 85%,var(--glow-lime),transparent 70%),var(--color-card)}
+  .photo img{position:absolute;left:4%;bottom:0;width:96%;height:85%;object-fit:cover;object-position:top}
+  .profile .h2{margin-bottom:24px}
+  .profile p{font-size:18px;color:var(--color-ink-2)}
+  .profile p+p{margin-top:1em}
+  .profile p b{color:var(--color-ink);font-weight:600}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px;max-width:520px}
+  .profile .cv{margin-top:32px}
+  .chips li{padding:10px 14px;border-radius:var(--pill);background:var(--color-surface);border:1px solid var(--color-line);font:500 14px/1 var(--sans)}
+
+  /* contact */
+  .foot{margin-top:var(--section);padding:clamp(80px,10vw,140px) 0 36px;text-align:center;
+    background:radial-gradient(50% 70% at 20% 105%,rgba(183,217,0,.4),transparent 70%),radial-gradient(45% 65% at 85% 105%,var(--glow-forest),transparent 70%)}
+  .foot h2{margin-top:16px;font:500 clamp(52px,8.9vw,128px)/.95 var(--sans);letter-spacing:-.047em}
+  .foot h2 em{display:block;font:italic 400 1.17em/.9 var(--serif);letter-spacing:-.02em;color:var(--color-accent)}
+  .foot .ctas{justify-content:center;margin-top:56px}
+  .foot .btn{min-height:64px;padding:0 32px;font-size:18px}
+  .foot .row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px 28px;margin-top:56px;padding-top:24px;border-top:1px solid var(--color-line);font:500 14px/1.4 var(--sans);color:var(--color-ink-2)}
+  .foot .row img{height:26px;width:auto}
+  .foot .row nav{display:flex;gap:28px;flex-wrap:wrap}
+  .foot .row a{text-decoration:none}
+  .foot .row a:hover{color:var(--color-ink)}
+
+  /* one entrance: transform only, text never fades */
+  @media (prefers-reduced-motion:no-preference){
+    .rise{transform:translateY(28px);transition:transform .7s var(--ease)}
+    .rise.in{transform:none}
+  }
+
+  /* narrow desktop: keep the header on one line */
+  @media (max-width:1180px){.top nav a small{display:none}}
+  /* tablet */
+  @media (max-width:980px){
+    .hero-stage{grid-template-columns:minmax(0,1fr);grid-template-rows:none;grid-template-areas:"tl" "photo" "tr" "br";justify-items:center;margin-top:20px;row-gap:24px}
+    .status{margin-top:0;justify-self:center}
+    .portrait{width:min(100%,440px)}
+    .portrait img{max-height:none}
+    .hero .lead{margin-top:-8px;max-width:560px;justify-self:stretch;margin-inline:auto;text-align:center}
+    .hero .ctas{justify-self:center;align-items:center;flex-direction:row;justify-content:center;padding-bottom:40px}
+    .peek{display:none}
+    .actions .btn-line{display:none}
+    .top nav a{padding:0 12px}
+    .steps{grid-template-columns:1fr}
+    .step,.step:first-child{padding:20px 0 24px}
+    .step+.step{border-left:0}
+    .step .top-row{margin-bottom:16px}
+    .stages{grid-template-columns:1fr 1fr}
+    .profile{grid-template-columns:1fr}
+    .photo{max-width:520px}
+    .grid:not(.is-filtered) .case.feature{grid-column:span 12;grid-row:auto}
+    .grid:not(.is-filtered) .case.feature .media{aspect-ratio:16/10;min-height:0}
+    .case,.grid:not(.is-filtered) .case.side{grid-column:span 6}
+  }
+
+  /* mobile */
+  @media (max-width:760px){
+    .top nav{display:none}
+    .actions{display:none}
+    .menu-btn{display:inline-flex}
+    .top.open{background:var(--color-bg)}
+    .top.open nav{display:flex;flex-direction:column;gap:2px;position:absolute;left:var(--gutter);right:var(--gutter);top:calc(100% + 4px);padding:8px;border-radius:var(--r-md);background:var(--color-surface);border:1px solid var(--color-line);box-shadow:0 24px 48px -24px rgba(0,0,0,.35)}
+    .top.open nav a{min-height:52px;padding:0 16px;border-radius:var(--r-sm);font-size:17px;color:var(--color-ink)}
+    .top.open nav a small{width:22px}
+    .top.open .menu-extra{display:flex;flex-direction:column;gap:8px;padding:8px 0 4px;margin-top:6px;border-top:1px solid var(--color-line)}
+    .menu-extra .btn{width:100%;border-radius:var(--pill);font-size:16px}
+    .top.open nav a[aria-current="true"],.top.open .menu-extra .btn-solid{color:var(--color-on-dark)}
+    .top.open .menu-extra .btn{border-radius:var(--pill);justify-content:center}
+    .tagline{font-size:14px}
+    .hero .ctas{flex-direction:column;align-items:stretch;justify-self:stretch;gap:10px}
+    .hero .ctas .btn{width:100%}
+    .proof dl{width:100%;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+    .proof dl div{flex-direction:column;align-items:flex-start;gap:4px}
+    .proof dd{font-size:30px}
+    .proof dt{font-size:13px}
+    .clients{display:none}
+    .grid{grid-template-columns:1fr;margin-top:28px}
+    .case,.grid:not(.is-filtered) .case.side,.grid:not(.is-filtered) .case.feature{grid-column:auto}
+    .grid:not(.is-filtered) .case.feature h3,.case h3{font-size:18px}
+    .case .media,.grid:not(.is-filtered) .case.side .media,.grid:not(.is-filtered) .case.feature .media{aspect-ratio:358/240}
+    .more .btn{width:100%}
+    .stages{grid-template-columns:1fr;gap:0}
+    .stage,.stage.now{flex-direction:row;align-items:baseline;gap:16px;padding:16px 0;border-radius:0;background:none;box-shadow:none;border-bottom:1px solid var(--color-line)}
+    .stage .thumb,.stage .thumb.text,.stage p,.stage .badge{display:none}
+    .stage .when{flex:none;width:84px;font-size:14px;color:var(--color-ink-3)}
+    .stage.now .when{color:var(--color-accent)}
+    .stage h3{font-weight:500;font-size:16px}
+    .foot .ctas{flex-direction:column}
+    .foot .btn{width:100%;font-size:16px;min-height:56px}
+    .foot .row{flex-direction:column;justify-content:center}
+  }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Saltar al contenido</a>
+
+<header class="top" id="top">
+  <div class="container">
+    <a class="logo" href="#" aria-label="David Londoño R., inicio"><img src="assets/logo/logo-negro.svg" alt="" width="131" height="32"></a>
+    <nav id="menu" aria-label="Principal">
+      <a href="#trabajo"><small aria-hidden="true">01</small>Trabajo</a><a href="#proceso"><small aria-hidden="true">02</small>Proceso</a><a href="#trayectoria"><small aria-hidden="true">03</small>Trayectoria</a><a href="#perfil"><small aria-hidden="true">04</small>Perfil</a>
+      <div class="menu-extra">
+        <a class="btn btn-solid" href="#contacto">Escríbeme</a>
+        <a class="btn btn-line" href="assets/David-Londono-Hoja-de-Vida.pdf" download>Hoja de vida (PDF)</a>
+      </div>
+    </nav>
+    <div class="actions">
+      <a class="btn btn-line" href="assets/David-Londono-Hoja-de-Vida.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>Hoja de vida</a>
+      <a class="btn btn-solid" href="#contacto">Escríbeme</a>
+    </div>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú"><svg class="bars" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" aria-labelledby="hola">
+    <div class="container">
+      <div class="hero-head">
+        <span class="tagline"><img src="assets/logo/icono-negro.svg" alt="" width="11" height="18">Diseñador de marca y web · Medellín, Colombia</span>
+        <h1 id="hola">Diseño marcas que conectan <em>empresas con personas.</em></h1>
+      </div>
+      <div class="hero-stage">
+        <span class="status"><i aria-hidden="true"></i>Disponible para nuevos proyectos</span>
+        <div class="portrait"><img src="assets/img/david-recorte.png" alt="Retrato de David Londoño" width="1145" height="1374" fetchpriority="high"></div>
+        <p class="lead">Diseño <b>campañas y sistemas de marca</b>, y construyo sitios en Webflow para marcas B2B, educación y cultura. 17 años de oficio, los más recientes en Magneto 365.</p>
+        <a class="peek" href="#trabajo"><span class="thumbs" aria-hidden="true"><img src="assets/img/mini/m-banco-agrario-1.jpg" alt="" width="48" height="48"><img src="assets/img/mini/s-worldskills-heroe.jpg" alt="" width="48" height="48"><img src="assets/img/mini/u-salon-artistas.jpg" alt="" width="48" height="48"></span><span><b>9 casos seleccionados</b>web, campañas, marca y editorial</span></a>
+        <div class="ctas">
+          <a class="btn btn-solid" href="#trabajo">Ver trabajo<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
+          <a class="btn btn-line" href="mailto:davidlond08@gmail.com">davidlond08@gmail.com</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="proof">
+      <dl aria-label="Cifras">
+        <div><dt>años de diseño de marca</dt><dd>10+</dd></div>
+        <div><dt>estudiantes formados en UX/UI</dt><dd>300+</dd></div>
+        <div><dt>proyectos al año</dt><dd>21–40</dd></div>
+      </dl>
+      <ul class="clients" aria-label="Organizaciones para las que he diseñado">
+        <li>Magneto 365</li><li>SENA</li><li>WorldSkills</li><li>UdeA</li><li>Colombo</li>
+      </ul>
+    </div>
+  </div>
+
+  <section class="work container" id="trabajo" aria-labelledby="sel">
+    <div class="work-head">
+      <div><span class="eyebrow">01 / Trabajo seleccionado</span><h2 id="sel" class="h2">Casos, no piezas sueltas</h2></div>
+      <div class="filters" role="group" aria-label="Filtrar casos" hidden>
+        <button type="button" data-filter="todo" aria-pressed="true">Todo</button>
+        <button type="button" data-filter="web" aria-pressed="false">Web</button>
+        <button type="button" data-filter="campanas" aria-pressed="false">Campañas</button>
+        <button type="button" data-filter="marca" aria-pressed="false">Marca</button>
+        <button type="button" data-filter="editorial" aria-pressed="false">Editorial</button>
+      </div>
+    </div>
+
+    <div class="grid" id="casos" aria-live="polite">
+      <a class="case feature rise" data-cat="web" href="casos/sitio-magneto.html">
+        <div class="media"><img src="assets/img/web-inicio.jpg" alt="Inicio del sitio corporativo de Magneto 365" width="2000" height="1250" loading="lazy"></div>
+        <div class="info"><div><h3>Sitio corporativo Magneto 365</h3><p>Maquetación en Webflow · 15+ soluciones, 4 países, versión móvil</p></div><span class="yr">2026</span></div>
+      </a>
+      <a class="case side rise" data-cat="campanas" href="casos/coffee-break.html">
+        <div class="media"><img src="assets/img/m-banco-agrario-1.jpg" alt="Coffee Break con Banco Agrario, portada del carrusel" width="1120" height="1400" loading="lazy"></div>
+        <div class="info"><div><h3>Coffee Break</h3><p>Campaña en redes · videopodcast B2B</p></div><span class="yr">2026</span></div>
+      </a>
+      <a class="case side rise" data-cat="campanas" href="casos/ai-academy.html">
+        <div class="media"><img src="assets/img/m-academy-carrusel-4.jpg" alt="La IA no reemplaza al reclutador, Magneto 365 AI Academy" width="1400" height="1400" loading="lazy"></div>
+        <div class="info"><div><h3>Magneto 365 AI Academy</h3><p>Lanzamiento</p></div><span class="yr">2026</span></div>
+      </a>
+      <a class="case rise" data-cat="marca" href="casos/manual-marca.html">
+        <div class="media"><img src="assets/img/m-manual-marca.jpg" alt="Portada del manual de marca y marketing B2B de Magneto 365 AI" width="1400" height="787" loading="lazy" style="object-position:center"></div>
+        <div class="info"><div><h3>Manual de marca Magneto 365 AI</h3><p>Identidad · sistema de marca</p></div><span class="yr">2025</span></div>
+      </a>
+      <a class="case rise" data-cat="marca" href="casos/agentes-virtuales.html">
+        <div class="media"><img src="assets/casos/agentes-virtuales/slide-01.jpg" alt="Portada del ecosistema de agentes virtuales" width="1200" height="1200" loading="lazy"></div>
+        <div class="info"><div><h3>Ecosistema de agentes virtuales</h3><p>Producto · presentación de 21 láminas</p></div><span class="yr">2025</span></div>
+      </a>
+      <a class="case rise" data-cat="editorial" href="casos/worldskills-sena.html">
+        <div class="media"><img src="assets/img/s-worldskills-heroe.jpg" alt="Tarjeta Héroe de bienvenida a WorldSkills" width="934" height="1400" loading="lazy"></div>
+        <div class="info"><div><h3>WorldSkills Colombia · SENA</h3><p>Eventos · editorial · infografía</p></div><span class="yr">2015</span></div>
+      </a>
+      <a class="case extra" data-cat="editorial" href="casos/material-comercial.html">
+        <div class="media"><img src="assets/img/m-onepager-agentes.jpg" alt="One-pager del ecosistema de agentes de IA" loading="lazy"></div>
+        <div class="info"><div><h3>One-pagers comerciales</h3><p>Editorial B2B</p></div><span class="yr">2025</span></div>
+      </a>
+      <a class="case extra" data-cat="editorial" href="casos/ebook-mundial.html">
+        <div class="media"><img src="assets/img/m-ebook-mundial.jpg" alt="E-book Colombia vuelve al Mundial" loading="lazy"></div>
+        <div class="info"><div><h3>E-book «Colombia vuelve al Mundial»</h3><p>Contenido · editorial</p></div><span class="yr">2026</span></div>
+      </a>
+      <a class="case extra" data-cat="campanas" href="casos/archivo.html">
+        <div class="media"><img src="assets/img/c-hollywood.jpg" alt="Afiche Estrellas doradas de Hollywood" loading="lazy"></div>
+        <div class="info"><div><h3>Archivo 2009–2016</h3><p>Afiches de cine, teatro, música y congresos</p></div><span class="yr">2009</span></div>
+      </a>
+    </div>
+    <div class="more" hidden>
+      <button class="btn btn-line" type="button" aria-controls="casos" aria-expanded="false">Ver los 9 casos y el archivo 2009–2016<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+    </div>
+  </section>
+
+  <section class="process container" id="proceso" aria-labelledby="como">
+    <div class="panel">
+      <div class="panel-head">
+        <div><span class="eyebrow">02 / Cómo trabajo</span><h2 id="como" class="h2">Así se <em>construye</em> un sistema</h2></div>
+        <p>Lo aprendí enseñando a más de 300 estudiantes: una buena pieza se puede explicar, repetir y escalar.</p>
+      </div>
+      <ol class="steps">
+        <li class="step"><div class="top-row"><span class="n">01</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div><h3>Entender</h3><p>Escucho al negocio, a los usuarios y al equipo comercial antes de abrir Figma.</p></li>
+        <li class="step"><div class="top-row"><span class="n">02</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19 7-7 3 3-7 7-3-3z"/><path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="m2 2 7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg></div><h3>Diseñar</h3><p>Exploro direcciones, uso la IA para ampliar opciones y decido con criterio.</p></li>
+        <li class="step"><div class="top-row"><span class="n">03</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2 10 5-10 5L2 7l10-5z"/><path d="m2 17 10 5 10-5M2 12l10 5 10-5"/></svg></div><h3>Sistematizar</h3><p>Convierto la solución en plantillas, componentes y manuales que el equipo puede seguir.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="timeline container" id="trayectoria" aria-labelledby="tl">
+    <span class="eyebrow">03 / Trayectoria</span>
+    <h2 id="tl" class="years" aria-label="De 2009 a 2026"><span>2009</span><i aria-hidden="true"></i><span>2026</span></h2>
+    <ol class="stages">
+      <li class="stage rise"><div class="when">2009–2013</div><div class="thumb"><img src="assets/img/c-hollywood.jpg" alt="" width="1238" height="1400" loading="lazy"></div><h3>UdeA · Colombo Americano</h3><p>Afiches académicos y culturales: cine, teatro, música, congresos.</p></li>
+      <li class="stage rise"><div class="when">2013–2016</div><div class="thumb"><img src="assets/img/s-periodico.jpg" alt="" width="1657" height="2000" loading="lazy"></div><h3>SENA Regional Antioquia</h3><p>Editorial, campañas y eventos, incluido WorldSkills Colombia.</p></li>
+      <li class="stage rise"><div class="when">2017–2024</div><div class="thumb text" aria-hidden="true">300+ estudiantes</div><h3>SENA · IUSH (docencia)</h3><p>Instructor y docente: marca, UX/UI y diseño responsive.</p></li>
+      <li class="stage now rise"><div class="when">2025–2026 <span class="badge">Reciente</span></div><div class="thumb"><img src="assets/img/m-agentes-virtuales.jpg" alt="" width="1400" height="1400" loading="lazy"></div><h3>Magneto 365 · Diseñador B2B</h3><p>Sitio en Webflow, marca, campañas y material comercial B2B.</p></li>
+    </ol>
+  </section>
+
+  <section class="profile container" id="perfil" aria-labelledby="perf">
+    <div class="photo"><img src="assets/img/david-recorte.png" alt="Retrato de David Londoño" width="1145" height="1374" loading="lazy"></div>
+    <div>
+      <span class="eyebrow">04 / Perfil</span>
+      <h2 id="perf" class="h2">Diseñador que <em>también enseña</em></h2>
+      <p><b>Diseñador visual y especialista en Gerencia de Marca</b>, con más de diez años entre el estudio y el aula. Fui instructor en el SENA (2017–2024) y docente de cátedra en la IUSH (2020–2024), donde formé a más de 300 estudiantes en marca, UX/UI y diseño responsive.</p>
+      <p>Esa práctica de explicar, ordenar y estandarizar es la que hoy aplico a los sistemas de marca. Integro la IA generativa (ChatGPT, Claude y Claude Code) con criterio editorial y validación humana.</p>
+      <ul class="chips" aria-label="Herramientas"><li>Illustrator</li><li>Photoshop</li><li>InDesign</li><li>After Effects</li><li>Figma</li><li>Webflow</li><li>HTML/CSS</li><li>Claude Code</li></ul>
+      <a class="btn btn-line cv" href="assets/David-Londono-Hoja-de-Vida.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>Descargar hoja de vida (PDF, 830 KB)</a>
+    </div>
+  </section>
+</main>
+
+<footer class="foot" id="contacto">
+  <div class="container">
+    <span class="eyebrow">05 / Contacto</span>
+    <h2>¿Diseñamos <em>lo que sigue?</em></h2>
+    <div class="ctas">
+      <a class="btn btn-solid" href="mailto:davidlond08@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>davidlond08@gmail.com</a>
+      <a class="btn btn-line" href="https://wa.me/573193610678"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>WhatsApp</a>
+    </div>
+    <div class="row">
+      <img src="assets/logo/logo-negro.svg" alt="David Londoño R." width="106" height="26">
+      <nav aria-label="Redes"><a href="assets/David-Londono-Hoja-de-Vida.pdf" download>Hoja de vida</a><a href="https://www.behance.net/davidlr18">Behance</a><a href="https://www.linkedin.com/in/david-londoño-r">LinkedIn</a><a href="tel:+573193610678">+57 319 361 0678</a></nav>
+      <span>© 2026 · Medellín, Colombia</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// header: solid background once you scroll, mobile menu, current section
+const top_=document.getElementById('top'),menuBtn=top_.querySelector('.menu-btn'),navLinks=[...top_.querySelectorAll('nav > a')];
+const onScroll=()=>top_.classList.toggle('scrolled',scrollY>8);
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+const setMenu=open=>{top_.classList.toggle('open',open);menuBtn.setAttribute('aria-expanded',open);menuBtn.setAttribute('aria-label',open?'Cerrar menú':'Abrir menú')};
+menuBtn.addEventListener('click',()=>setMenu(!top_.classList.contains('open')));
+top_.querySelector('nav').addEventListener('click',e=>{if(e.target.closest('a'))setMenu(false)});
+addEventListener('keydown',e=>{if(e.key==='Escape'&&top_.classList.contains('open')){setMenu(false);menuBtn.focus()}});
+addEventListener('click',e=>{if(top_.classList.contains('open')&&!top_.contains(e.target))setMenu(false)});
+const sections=navLinks.map(a=>document.querySelector(a.hash));
+const markCurrent=()=>{
+  const line=innerHeight*.35;let current=null;
+  sections.forEach((s,i)=>{const r=s.getBoundingClientRect();if(r.top<=line&&r.bottom>line)current=navLinks[i]});
+  navLinks.forEach(a=>a===current?a.setAttribute('aria-current','true'):a.removeAttribute('aria-current'));
+};
+addEventListener('scroll',markCurrent,{passive:true});markCurrent();
+
+// cases: filters + "ver más" (without JS every case stays visible)
+const grid=document.getElementById('casos'),cases=[...grid.querySelectorAll('.case')],
+      filters=document.querySelector('.filters'),more=document.querySelector('.more'),moreBtn=more.querySelector('button');
+let expanded=false,current='todo';
+const render=()=>{
+  const all=current==='todo';
+  grid.classList.toggle('is-filtered',!all);
+  cases.forEach(c=>{c.hidden=all?(!expanded&&c.classList.contains('extra')):c.dataset.cat!==current});
+  more.hidden=!all||expanded;
+};
+filters.hidden=false;
+filters.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
+  current=b.dataset.filter;filters.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));render()});
+moreBtn.addEventListener('click',()=>{expanded=true;moreBtn.setAttribute('aria-expanded','true');render();cases.find(c=>c.classList.contains('extra'))?.focus()});
+render();
+
+// one entrance, staggered in reading order
+const io=new IntersectionObserver(es=>es.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('in'),i*110);io.unobserve(e.target)}}),{rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.rise').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

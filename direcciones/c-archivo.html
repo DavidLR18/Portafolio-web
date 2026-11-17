@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dirección C · Archivo — David Londoño R.</title>
+<link rel="icon" href="../sitio/assets/logo/icono.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Raleway:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FAFAF7; --ink:#0E0E10; --ink-2:#5B5B60; --rule:#0E0E10; --tint:#ECEBE6;
+  --plum:#890965; --blue:#122CA2;
+  --brand:linear-gradient(120deg,var(--plum),var(--blue));
+  --sans:"Archivo",system-ui,sans-serif;
+  --gutter:clamp(16px,3.2vw,48px);
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+*{box-sizing:border-box;margin:0}
+html{background:var(--bg);color:var(--ink)}
+body{font:400 18px/1.55 var(--sans);font-stretch:100%;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+.wrap{padding-inline:var(--gutter)}
+
+.top{display:flex;justify-content:space-between;align-items:center;padding:20px var(--gutter);position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--rule)}
+.top img{height:28px;width:auto}
+.top nav{display:flex;gap:4px}
+.top nav a{font:600 14px/1 var(--sans);font-stretch:112%;text-decoration:none;padding:10px 14px;border-radius:2px;text-transform:uppercase;letter-spacing:.02em}
+.top nav a:hover{background:var(--ink);color:var(--bg)}
+
+/* --- hero: the years are the headline --- */
+.hero{padding-top:clamp(32px,5vw,64px)}
+.hero .label{display:flex;justify-content:space-between;gap:16px;font:600 14px/1.3 var(--sans);font-stretch:112%;text-transform:uppercase;letter-spacing:.02em}
+.years{display:flex;align-items:baseline;justify-content:space-between;font:900 clamp(80px,19vw,320px)/.8 var(--sans);font-stretch:62%;letter-spacing:-.02em;margin-top:clamp(12px,2vw,24px)}
+.years .dash{flex:1;height:clamp(6px,1.1vw,18px);background:var(--brand);margin:0 .12em;align-self:center;transform:translateY(-.08em)}
+.hero h1{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--gutter);margin-top:clamp(24px,3vw,40px);padding-top:20px;border-top:1px solid var(--rule)}
+.hero h1 .big{font:800 clamp(30px,3.6vw,56px)/1 var(--sans);font-stretch:88%;letter-spacing:-.015em}
+.hero h1 .small{font:400 19px/1.5 var(--sans);color:var(--ink-2);align-self:end;max-width:540px}
+.hero h1 .small b{color:var(--ink);font-weight:600}
+
+/* --- the strip: every piece, in order, bleeding off both edges --- */
+.strip{margin-top:clamp(40px,6vw,72px);overflow-x:auto;scrollbar-width:none;cursor:grab;border-block:1px solid var(--rule);background:var(--tint)}
+.strip::-webkit-scrollbar{display:none}
+.strip ol{display:flex;gap:14px;list-style:none;padding:20px var(--gutter);width:max-content}
+.strip li{flex:none;width:clamp(150px,15vw,230px)}
+.strip img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:top;background:#ddd}
+.strip .yr{display:flex;justify-content:space-between;margin-top:8px;font:700 12px/1 var(--sans);font-stretch:112%;text-transform:uppercase;letter-spacing:.02em}
+.strip .yr span:last-child{color:var(--ink-2);font-weight:500}
+.hint{padding:10px var(--gutter);font:500 13px/1 var(--sans);color:var(--ink-2)}
+
+/* --- eras: sticky year on the left, the work on the right --- */
+.era{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,2.1fr);gap:var(--gutter);padding-top:clamp(72px,10vw,140px)}
+.era .stick{position:sticky;top:90px;align-self:start}
+.era .yr{font:900 clamp(64px,10vw,168px)/.82 var(--sans);font-stretch:62%;letter-spacing:-.02em}
+.era .yr small{display:block;font-size:.42em;color:var(--ink-2)}
+.era .who{margin-top:20px;padding-top:12px;border-top:1px solid var(--rule);font:700 15px/1.3 var(--sans);font-stretch:112%;text-transform:uppercase;letter-spacing:.02em}
+.era .role{font:400 16px/1.5 var(--sans);color:var(--ink-2);margin-top:6px}
+.era h2{font:800 clamp(32px,3.8vw,60px)/1 var(--sans);font-stretch:85%;letter-spacing:-.02em;margin-bottom:20px}
+.era .desc{font-size:19px;color:var(--ink-2);max-width:640px;margin-bottom:clamp(28px,4vw,48px)}
+.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+.grid figure{position:relative}
+.grid img{width:100%;height:100%;object-fit:cover;object-position:top}
+.grid figcaption{position:absolute;left:0;bottom:0;background:var(--bg);padding:6px 10px 0 0;font:700 12px/1.2 var(--sans);font-stretch:112%;text-transform:uppercase;letter-spacing:.02em;max-width:85%}
+.g-wide{grid-column:span 6;aspect-ratio:16/10}
+.g-half{grid-column:span 3;aspect-ratio:4/5}
+.g-third{grid-column:span 2;aspect-ratio:4/5}
+.g-phone{grid-column:span 2;aspect-ratio:9/19}
+.g-four{grid-column:span 4;aspect-ratio:auto}
+
+/* overlapping band: one quote that joins the present to the archive */
+.overlap{position:relative;margin:clamp(72px,10vw,140px) 0 0;background:var(--ink);color:var(--bg);padding:clamp(56px,8vw,110px) var(--gutter)}
+.overlap p{font:800 clamp(32px,5vw,84px)/.98 var(--sans);font-stretch:80%;letter-spacing:-.02em;max-width:1200px}
+.overlap p span{background:var(--brand);-webkit-background-clip:text;background-clip:text;color:transparent;filter:brightness(1.9) saturate(1.2)}
+.overlap .sig{margin-top:28px;font:600 14px/1.3 var(--sans);font-stretch:112%;text-transform:uppercase;letter-spacing:.03em;color:#B7B6BC}
+
+.foot{padding:clamp(72px,10vw,140px) var(--gutter) 28px}
+.foot .big{display:block;font:900 clamp(56px,11vw,190px)/.85 var(--sans);font-stretch:62%;letter-spacing:-.02em;text-decoration:none;text-transform:uppercase}
+.foot .big:hover{color:var(--plum)}
+.foot .row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-top:40px;padding-top:14px;border-top:1px solid var(--rule);font:600 14px/1.3 var(--sans);font-stretch:112%;text-transform:uppercase;letter-spacing:.02em}
+.foot .row a{text-decoration:none;margin-right:20px}.foot .row a:hover{color:var(--plum)}
+
+@media (prefers-reduced-motion:no-preference){
+  .rise{transform:translateY(28px);transition:transform .7s var(--ease)}
+  .rise.in{transform:none}
+}
+@media (max-width:900px){
+  .top nav a:not(:last-child){display:none}
+  .hero h1{grid-template-columns:1fr}
+  .hero .label span:nth-child(2){display:none}
+  .era{grid-template-columns:1fr}
+  .era .stick{position:static}
+  .g-half,.g-third,.g-four{grid-column:span 3}
+  .g-phone{grid-column:span 3}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <a href="#"><img src="../sitio/assets/logo/logo.svg" alt="David Londoño R."></a>
+  <nav aria-label="Principal"><a href="#2025">Magneto</a><a href="#2013">SENA</a><a href="#2009">Archivo</a><a href="#contacto">Contacto</a></nav>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <div class="label"><span>Portafolio de diseño</span><span>Marca · Web · Editorial · B2B</span><span>Medellín</span></div>
+      <div class="years rise" aria-label="De 2009 a 2026"><span>2009</span><i class="dash"></i><span>2026</span></div>
+      <h1>
+        <span class="big">De afiches de cine a sitios web con IA: el mismo oficio, más grande cada año.</span>
+        <span class="small">Soy <b>David Londoño</b>, diseñador visual y especialista en Gerencia de Marca. Este es mi archivo, ordenado por año, para que veas cómo pienso y no solo lo que hice.</span>
+      </h1>
+    </div>
+    <div class="strip" tabindex="0" aria-label="Línea de tiempo de piezas, desplázate horizontalmente">
+      <ol>
+        <li><img src="../sitio/assets/img/web-inicio-movil.jpg" alt="Sitio Magneto 365 en móvil"><div class="yr"><span>2026</span><span>Magneto</span></div></li>
+        <li><img src="../sitio/assets/img/m-banco-agrario-1.jpg" alt="Coffee Break Banco Agrario"><div class="yr"><span>2026</span><span>Magneto</span></div></li>
+        <li><img src="../sitio/assets/img/m-academy-lanzamiento.jpg" alt="Lanzamiento AI Academy"><div class="yr"><span>2026</span><span>Magneto</span></div></li>
+        <li><img src="../sitio/assets/img/m-ebook-mundial.jpg" alt="E-book Colombia vuelve al Mundial"><div class="yr"><span>2026</span><span>Magneto</span></div></li>
+        <li><img src="../sitio/assets/img/m-onepager-agentes.jpg" alt="One-pager ecosistema de agentes"><div class="yr"><span>2026</span><span>Magneto</span></div></li>
+        <li><img src="../sitio/assets/img/m-agentes-virtuales.jpg" alt="Ecosistema de agentes virtuales"><div class="yr"><span>2025</span><span>Magneto</span></div></li>
+        <li><img src="../sitio/assets/img/s-microrrueda.jpg" alt="Microrrueda de empleo"><div class="yr"><span>2015</span><span>SENA</span></div></li>
+        <li><img src="../sitio/assets/img/s-worldskills-heroe.jpg" alt="Tarjeta Héroe WorldSkills"><div class="yr"><span>2015</span><span>SENA</span></div></li>
+        <li><img src="../sitio/assets/img/s-oradores.jpg" alt="Concurso de oradores y escritores"><div class="yr"><span>2015</span><span>SENA</span></div></li>
+        <li><img src="../sitio/assets/img/s-periodico.jpg" alt="Periódico SENA"><div class="yr"><span>2015</span><span>SENA</span></div></li>
+        <li><img src="../sitio/assets/img/u-salon-artistas.jpg" alt="25 Salón de Artistas"><div class="yr"><span>2012</span><span>UdeA</span></div></li>
+        <li><img src="../sitio/assets/img/u-jornadas-investigacion.jpg" alt="Jornadas de Investigación"><div class="yr"><span>2012</span><span>UdeA</span></div></li>
+        <li><img src="../sitio/assets/img/u-radiologia.jpg" alt="Curso de Radiología"><div class="yr"><span>2012</span><span>UdeA</span></div></li>
+        <li><img src="../sitio/assets/img/c-lelo.jpg" alt="LELO en concierto"><div class="yr"><span>2009</span><span>Colombo</span></div></li>
+        <li><img src="../sitio/assets/img/c-hollywood.jpg" alt="Estrellas doradas de Hollywood"><div class="yr"><span>2009</span><span>Colombo</span></div></li>
+        <li><img src="../sitio/assets/img/c-kinetoscopio.jpg" alt="Kinetoscopio 87"><div class="yr"><span>2009</span><span>Colombo</span></div></li>
+      </ol>
+    </div>
+    <div class="hint">← Arrastra la línea de tiempo →</div>
+  </section>
+
+  <section class="wrap era" id="2025">
+    <div class="stick">
+      <div class="yr">2025<small>— hoy</small></div>
+      <div class="who">Magneto 365</div>
+      <div class="role">Diseñador B2B · sitio web, campañas y material comercial</div>
+    </div>
+    <div>
+      <h2 class="rise">Un ecosistema visual para una plataforma de talento con IA.</h2>
+      <p class="desc">Participé en la evolución de Magneto a Magneto 365 AI: el sitio en Webflow, el manual de marca B2B, campañas de contenido como Coffee Break y AI Academy, y el sistema de one-pagers para el equipo comercial.</p>
+      <div class="grid">
+        <figure class="g-wide"><img src="../sitio/assets/img/web-inicio.jpg" alt="Inicio del sitio Magneto 365"><figcaption>Sitio web · Webflow</figcaption></figure>
+        <figure class="g-third"><img src="../sitio/assets/img/m-banco-agrario-25a3.jpg" alt="De 25 pasos a 3"><figcaption>Coffee Break</figcaption></figure>
+        <figure class="g-third"><img src="../sitio/assets/img/m-academy-carrusel-4.jpg" alt="La IA no reemplaza al reclutador"><figcaption>AI Academy</figcaption></figure>
+        <figure class="g-phone"><img src="../sitio/assets/img/web-agentes-movil.jpg" alt="Agentes de selección en móvil"><figcaption>Móvil</figcaption></figure>
+        <figure class="g-four"><img src="../sitio/assets/img/m-manual-marca.jpg" alt="Manual de marca Magneto 365 AI"><figcaption>Manual de marca</figcaption></figure>
+        <figure class="g-third" style="grid-row:span 1"><img src="../sitio/assets/img/m-onepager-smr.jpg" alt="One-pager Social Media Recruiting"><figcaption>One-pager</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="overlap">
+    <p class="rise">Diez años formando diseñadores me enseñaron que un buen sistema <span>se puede explicar</span>. Por eso diseño sistemas, no piezas sueltas.</p>
+    <div class="sig">Instructor SENA 2017–2024 · Docente IUSH 2020–2024 · Experto técnico WorldSkills</div>
+  </section>
+
+  <section class="wrap era" id="2013">
+    <div class="stick">
+      <div class="yr">2013<small>— 2016</small></div>
+      <div class="who">SENA Regional Antioquia</div>
+      <div class="role">Diseñador gráfico · editorial, eventos y campañas</div>
+    </div>
+    <div>
+      <h2 class="rise">Periódicos, infografías y el material de WorldSkills.</h2>
+      <p class="desc">Comunicación interna y externa para la regional más grande del SENA: el periódico y los boletines, campañas de empleo, eventos regionales y el recibimiento de los competidores de WorldSkills.</p>
+      <div class="grid">
+        <figure class="g-half"><img src="../sitio/assets/img/s-worldskills-heroe.jpg" alt="Héroe, tarjeta WorldSkills"><figcaption>WorldSkills · Héroe</figcaption></figure>
+        <figure class="g-half"><img src="../sitio/assets/img/s-periodico.jpg" alt="Periódico SENA, atención en la frontera"><figcaption>Periódico regional</figcaption></figure>
+        <figure class="g-wide"><img src="../sitio/assets/img/s-infografia-medellin.jpg" alt="Infografía Educación para transformar a Medellín" style="object-position:center"><figcaption>Infografía</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap era" id="2009">
+    <div class="stick">
+      <div class="yr">2009<small>— 2013</small></div>
+      <div class="who">UdeA · Colombo Americano</div>
+      <div class="role">Afiches académicos y culturales</div>
+    </div>
+    <div>
+      <h2 class="rise">Donde aprendí que cada afiche necesita una idea.</h2>
+      <p class="desc">Cine, teatro, música, congresos médicos: cada evento con su propio concepto visual, desde una radiografía hasta un collage de estrellas de Hollywood.</p>
+      <div class="grid">
+        <figure class="g-third"><img src="../sitio/assets/img/u-salon-artistas.jpg" alt="25 Salón de Artistas"><figcaption>Salón de Artistas</figcaption></figure>
+        <figure class="g-third"><img src="../sitio/assets/img/c-hollywood.jpg" alt="Estrellas doradas de Hollywood"><figcaption>Ciclo de cine</figcaption></figure>
+        <figure class="g-third"><img src="../sitio/assets/img/u-radiologia.jpg" alt="Curso de Radiología"><figcaption>Radiología</figcaption></figure>
+        <figure class="g-third"><img src="../sitio/assets/img/c-jesucristo.jpg" alt="Jesucristo Supersona"><figcaption>Teatro</figcaption></figure>
+        <figure class="g-third"><img src="../sitio/assets/img/u-escuela-medicina.jpg" alt="Escuela de Medicina, libro"><figcaption>Libro</figcaption></figure>
+        <figure class="g-third"><img src="../sitio/assets/img/c-lelo.jpg" alt="LELO en concierto"><figcaption>Concierto</figcaption></figure>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot" id="contacto">
+  <a class="big" href="mailto:davidlond08@gmail.com">2027: ¿contigo?</a>
+  <div class="row">
+    <div><a href="mailto:davidlond08@gmail.com">davidlond08@gmail.com</a><a href="https://www.behance.net/davidlr18">Behance</a><a href="https://www.linkedin.com/in/david-londoño-r">LinkedIn</a></div>
+    <span>© 2026 David Londoño R.</span>
+  </div>
+</footer>
+
+<script>
+// drag to scroll the timeline with a mouse; touch and trackpad scroll natively
+const s=document.querySelector('.strip');let down=false,x0=0,l0=0;
+s.addEventListener('pointerdown',e=>{if(e.pointerType!=='mouse')return;down=true;x0=e.clientX;l0=s.scrollLeft;s.style.cursor='grabbing'});
+addEventListener('pointerup',()=>{down=false;s.style.cursor=''});
+addEventListener('pointermove',e=>{if(down){s.scrollLeft=l0-(e.clientX-x0);e.preventDefault()}});
+s.querySelectorAll('img').forEach(i=>i.draggable=false);
+const io=new IntersectionObserver(es=>es.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('in'),i*120);io.unobserve(e.target)}}),{rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.rise').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+/* Versión B: the green from the CV (#B7D900) paired with a deep forest green so the
+   gradient keeps a dark end for contrast. Only tokens change; layout is shared. */
+html[data-tema="verde"]{
+  --bg:#F1F2EC; --card:#E6E9DD;
+  --plum:#B7D900; --blue:#2E6B12;
+  --brand:linear-gradient(120deg,#B7D900,#2E6B12);
+  --glow-plum:rgba(183,217,0,.36); --glow-blue:rgba(62,140,40,.24);
+  --ring:rgba(183,217,0,.30); --tint:rgba(183,217,0,.16);
+}
