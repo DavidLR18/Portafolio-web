@@ -105,9 +105,9 @@ clip-path: polygon(0 var(--fy), var(--fx) 0, 100% 0, 100% 100%, 0 100%);
 
 ## Logo
 
-- Header and footer use `assets/logo/logo.svg` (color mark + Noche wordmark), 34 px and 30 px tall.
+- The home page nav and footer sit on Noche and use `assets/logo/logo-negativo.svg` (one white ink). Case pages use `assets/logo/logo.svg` (color mark + Noche wordmark), 34 px in the header and 30 px in the footer.
 - Tagline uses `assets/logo/icono.svg`. Favicon is `assets/logo/icono-disco.svg`.
-- `logo-negro.svg` and `icono-negro.svg` remain only for the CVs in `hoja-de-vida/`.
+- The CVs in `hoja-de-vida/` use `logo.svg` too. `logo-negro.svg` and `icono-negro.svg` are no longer referenced; they stay in `assets/logo/` for one-ink uses.
 - Clear space: one cap height of the «D» (≈ 29 % of the logo height). Minimum: 140 px wide, mark alone 28 px tall.
 
 ## Iconography
@@ -150,12 +150,18 @@ Skip link, landmarks, visible 3 px Cobalto focus ring, 46–56 px touch targets 
 
 ## Changing the system
 
-1. Change the token in `sitio/assets/css/inicio.css` and `sitio/assets/css/caso.css`.
+1. Change the token in `sitio/assets/css/inicio.css`, `sitio/assets/css/caso.css` and `hoja-de-vida/hv.css`, then re-export the CVs with `sh herramientas/exportar-hv.sh`.
 2. Case markup comes from `herramientas/generar-casos.pl`; edit the template there and run it, never the generated HTML.
 3. Update `marca/manual-de-marca.html`, re-export its PDF, and update this file (contrast table included).
 
+## Pencil files
+
+| File | Status |
+|---|---|
+| `diseno/portafolio.pen` | v1 (green and lime). Kept on purpose as a historical version; do not update it. |
+| `portafolio-v2/diseño/portafolio-v2.pen` | Current home page, desktop and mobile. |
+| `hoja-de-vida/hojas-de-vida.pen` | The three CVs, five letter-size pages (same layout for HTML and PDF). |
+
 ## Known gaps
 
-- `diseno/portafolio.pen` still holds the v1 green variables; Pencil was not running during the v2.0 migration.
-- The CVs in `hoja-de-vida/` keep the v1 look and the black-and-white portrait.
 - `assets/img/david-color.png` is a 1.1 MB PNG; a WebP export would cut it to about 200 KB.
