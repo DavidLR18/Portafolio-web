@@ -13,6 +13,7 @@ No se publica: GitHub Pages solo publica `../sitio/`. Los enlaces a los casos y 
 | `assets/js/main.js` | Menú móvil, sección activa en la barra y la entrada de los bloques. |
 | `assets/img/` | Retratos a color y piezas de los casos, reducidas a 1200 px. |
 | `assets/logo/` | Logos del manual y `logo-negativo.svg` para fondos Noche. |
+| `diseño/portafolio-v2.pen` | La misma página en Pencil (pen.dev): versión de escritorio (1440 px) y móvil (390 px) como capas editables, con las variables del manual. Sus imágenes están en `diseño/portafolio-v2-assets/`. |
 
 ## Verla en local
 
