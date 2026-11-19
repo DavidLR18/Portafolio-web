@@ -524,7 +524,7 @@
                               "textGrowth": "fixed-width-height",
                               "width": 330.6,
                               "height": 83.7,
-                              "content": "Diseño campañas y sistemas de marca, y construyo sitios en Webflow para marcas B2B, educación y cultura.",
+                              "content": "Diseño campañas, sistemas de marca y sitios web para marcas B2B, educación y cultura.",
                               "lineHeight": 1.55,
                               "fontFamily": "Raleway",
                               "fontSize": 18,
@@ -1003,7 +1003,7 @@
                                       "textGrowth": "fixed-width-height",
                                       "width": "fill_container",
                                       "height": 40.59,
-                                      "content": "Maquetación en Webflow, responsive y lista para crecer.",
+                                      "content": "Páginas claras en Webflow, pensadas para leerse bien en cualquier pantalla.",
                                       "lineHeight": 1.45,
                                       "fontFamily": "Raleway",
                                       "fontSize": 14,
@@ -3569,7 +3569,7 @@
                                       "textGrowth": "fixed-width-height",
                                       "width": 367.34,
                                       "height": 45,
-                                      "content": "Marca, UX/UI y diseño responsive. Más de 300 estudiantes formados.",
+                                      "content": "Marca, UX/UI y diseño digital. Más de 300 estudiantes formados.",
                                       "lineHeight": 1.5,
                                       "fontFamily": "Raleway",
                                       "fontSize": 15,
@@ -4840,7 +4840,7 @@
                           "textGrowth": "fixed-width-height",
                           "width": 603.66,
                           "height": 108.78,
-                          "content": "Fui instructor en el SENA (2017–2024) y docente de cátedra en la IUSH (2020–2024). Esa práctica de explicar, ordenar y estandarizar es la que hoy aplico a los sistemas de marca. Integro la IA generativa (ChatGPT, Claude y Claude Code) con criterio editorial y validación humana.",
+                          "content": "Fui instructor en el SENA (2017–2024) y docente de cátedra en la IUSH (2020–2024). Esa práctica de explicar, ordenar y estandarizar es la que hoy aplico a los sistemas de marca. Uso la IA generativa (ChatGPT y Claude) como apoyo, con criterio editorial y validación humana.",
                           "lineHeight": 1.6,
                           "fontFamily": "Raleway",
                           "fontSize": 17,
@@ -4860,7 +4860,7 @@
                           "name": "ul",
                           "context": "ul",
                           "width": "fill_container",
-                          "height": 72,
+                          "height": 32,
                           "layout": "none",
                           "children": [
                             {
@@ -5078,80 +5078,6 @@
                                   "id": "G52TQ",
                                   "fill": "#17121a",
                                   "content": "Webflow",
-                                  "lineHeight": 1,
-                                  "fontFamily": "Raleway",
-                                  "fontSize": 14,
-                                  "fontWeight": "500"
-                                }
-                              ]
-                            },
-                            {
-                              "type": "frame",
-                              "id": "FEGl2",
-                              "x": 586.21,
-                              "y": 0,
-                              "name": "HTML/CSS",
-                              "context": "li",
-                              "height": 32,
-                              "fill": "#ffffff",
-                              "cornerRadius": 999,
-                              "stroke": "#DAD5D8",
-                              "strokeWidth": 1,
-                              "strokeAlignment": "inner",
-                              "effect": {
-                                "type": "shadow",
-                                "shadowType": "inner",
-                                "color": "#17121a21",
-                                "blur": 1
-                              },
-                              "layout": "vertical",
-                              "padding": [
-                                9,
-                                14
-                              ],
-                              "children": [
-                                {
-                                  "type": "text",
-                                  "id": "zz2EU",
-                                  "fill": "#17121a",
-                                  "content": "HTML/CSS",
-                                  "lineHeight": 1,
-                                  "fontFamily": "Raleway",
-                                  "fontSize": 14,
-                                  "fontWeight": "500"
-                                }
-                              ]
-                            },
-                            {
-                              "type": "frame",
-                              "id": "qSFjG",
-                              "x": 0,
-                              "y": 40,
-                              "name": "Claude Code",
-                              "context": "li",
-                              "height": 32,
-                              "fill": "#ffffff",
-                              "cornerRadius": 999,
-                              "stroke": "#DAD5D8",
-                              "strokeWidth": 1,
-                              "strokeAlignment": "inner",
-                              "effect": {
-                                "type": "shadow",
-                                "shadowType": "inner",
-                                "color": "#17121a21",
-                                "blur": 1
-                              },
-                              "layout": "vertical",
-                              "padding": [
-                                9,
-                                14
-                              ],
-                              "children": [
-                                {
-                                  "type": "text",
-                                  "id": "Sib0z",
-                                  "fill": "#17121a",
-                                  "content": "Claude Code",
                                   "lineHeight": 1,
                                   "fontFamily": "Raleway",
                                   "fontSize": 14,
@@ -5793,7 +5719,7 @@
                       "name": "Diseño y código: David Londoño R.",
                       "context": "span",
                       "fill": "#ffffffb8",
-                      "content": "Diseño y código: David Londoño R.",
+                      "content": "Diseño: David Londoño R.",
                       "lineHeight": 1.4,
                       "fontFamily": "Fragment Mono",
                       "fontSize": 12,
@@ -6161,7 +6087,7 @@
                               "textGrowth": "fixed-width-height",
                               "width": "fill_container(355.68)",
                               "height": 74.39,
-                              "content": "Diseño campañas y sistemas de marca, y construyo sitios en Webflow para marcas B2B, educación y cultura.",
+                              "content": "Diseño campañas, sistemas de marca y sitios web para marcas B2B, educación y cultura.",
                               "lineHeight": 1.55,
                               "textAlign": "center",
                               "fontFamily": "Raleway",
@@ -6651,7 +6577,7 @@
                                       "textGrowth": "fixed-width-height",
                                       "width": "fill_container",
                                       "height": 40.59,
-                                      "content": "Maquetación en Webflow, responsive y lista para crecer.",
+                                      "content": "Páginas claras en Webflow, pensadas para leerse bien en cualquier pantalla.",
                                       "lineHeight": 1.45,
                                       "fontFamily": "Raleway",
                                       "fontSize": 14,
@@ -8674,7 +8600,7 @@
                                   "textGrowth": "fixed-width-height",
                                   "width": "fill_container",
                                   "height": 45,
-                                  "content": "Marca, UX/UI y diseño responsive. Más de 300 estudiantes formados.",
+                                  "content": "Marca, UX/UI y diseño digital. Más de 300 estudiantes formados.",
                                   "lineHeight": 1.5,
                                   "fontFamily": "Raleway",
                                   "fontSize": 15,
@@ -9948,7 +9874,7 @@
                           "textGrowth": "fixed-width-height",
                           "width": "fill_container",
                           "height": 190.37,
-                          "content": "Fui instructor en el SENA (2017–2024) y docente de cátedra en la IUSH (2020–2024). Esa práctica de explicar, ordenar y estandarizar es la que hoy aplico a los sistemas de marca. Integro la IA generativa (ChatGPT, Claude y Claude Code) con criterio editorial y validación humana.",
+                          "content": "Fui instructor en el SENA (2017–2024) y docente de cátedra en la IUSH (2020–2024). Esa práctica de explicar, ordenar y estandarizar es la que hoy aplico a los sistemas de marca. Uso la IA generativa (ChatGPT y Claude) como apoyo, con criterio editorial y validación humana.",
                           "lineHeight": 1.6,
                           "fontFamily": "Raleway",
                           "fontSize": 17,
@@ -9968,7 +9894,7 @@
                           "name": "ul",
                           "context": "ul",
                           "width": "fill_container",
-                          "height": 112,
+                          "height": 72,
                           "layout": "none",
                           "children": [
                             {
@@ -10186,80 +10112,6 @@
                                   "id": "KMzBT",
                                   "fill": "#17121a",
                                   "content": "Webflow",
-                                  "lineHeight": 1,
-                                  "fontFamily": "Raleway",
-                                  "fontSize": 14,
-                                  "fontWeight": "500"
-                                }
-                              ]
-                            },
-                            {
-                              "type": "frame",
-                              "id": "SF6yM",
-                              "x": 0,
-                              "y": 80,
-                              "name": "HTML/CSS",
-                              "context": "li",
-                              "height": 32,
-                              "fill": "#ffffff",
-                              "cornerRadius": 999,
-                              "stroke": "#DAD5D8",
-                              "strokeWidth": 1,
-                              "strokeAlignment": "inner",
-                              "effect": {
-                                "type": "shadow",
-                                "shadowType": "inner",
-                                "color": "#17121a21",
-                                "blur": 1
-                              },
-                              "layout": "vertical",
-                              "padding": [
-                                9,
-                                14
-                              ],
-                              "children": [
-                                {
-                                  "type": "text",
-                                  "id": "V36tF",
-                                  "fill": "#17121a",
-                                  "content": "HTML/CSS",
-                                  "lineHeight": 1,
-                                  "fontFamily": "Raleway",
-                                  "fontSize": 14,
-                                  "fontWeight": "500"
-                                }
-                              ]
-                            },
-                            {
-                              "type": "frame",
-                              "id": "uDin9",
-                              "x": 110.48,
-                              "y": 80,
-                              "name": "Claude Code",
-                              "context": "li",
-                              "height": 32,
-                              "fill": "#ffffff",
-                              "cornerRadius": 999,
-                              "stroke": "#DAD5D8",
-                              "strokeWidth": 1,
-                              "strokeAlignment": "inner",
-                              "effect": {
-                                "type": "shadow",
-                                "shadowType": "inner",
-                                "color": "#17121a21",
-                                "blur": 1
-                              },
-                              "layout": "vertical",
-                              "padding": [
-                                9,
-                                14
-                              ],
-                              "children": [
-                                {
-                                  "type": "text",
-                                  "id": "P5fpcH",
-                                  "fill": "#17121a",
-                                  "content": "Claude Code",
                                   "lineHeight": 1,
                                   "fontFamily": "Raleway",
                                   "fontSize": 14,
@@ -10862,7 +10714,7 @@
                       "name": "Diseño y código: David Londoño R.",
                       "context": "span",
                       "fill": "#ffffffb8",
-                      "content": "Diseño y código: David Londoño R.",
+                      "content": "Diseño: David Londoño R.",
                       "lineHeight": 1.4,
                       "fontFamily": "Fragment Mono",
                       "fontSize": 12,

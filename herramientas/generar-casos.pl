@@ -15,12 +15,12 @@ my @cases = (
 {
   slug => 'sitio-magneto', title => 'Un sitio para <em>quince</em> soluciones',
   label => 'Sitio corporativo Magneto 365', client => 'Magneto 365', year => '2025 – 2026',
-  role => 'Maquetación en Webflow', scope => 'Web · Webflow · Responsive',
-  summary => 'El nuevo sitio corporativo de Magneto 365 AI, una plataforma de talento con IA con más de quince soluciones y versiones para cuatro países. Mi parte fue construirlo: llevar los diseños a Webflow, página por página, y hacer que funcionaran igual de bien en escritorio y en el celular.',
+  role => 'Maquetación en Webflow', scope => 'Web · Webflow · Móvil',
+  summary => 'El nuevo sitio corporativo de Magneto 365 AI, una plataforma de talento con IA con más de quince soluciones y versiones para cuatro países. Mi parte fue llevar los diseños a Webflow, página por página, cuidando que se vieran igual de bien en escritorio y en el celular.',
   cover => ["$A/sitio-magneto/01-inicio.jpg", 'Página de inicio del sitio de Magneto 365 en escritorio'],
   blocks => [
     ['text', 'El <em>reto</em>', '<p>Magneto evolucionó a <b>Magneto 365 AI</b> y su oferta creció: ATS, agentes de selección con IA, marca empleadora, movilidad interna, pruebas psicométricas, alianzas con LinkedIn y Meta. Cada solución necesitaba su propia página, y todas tenían que verse y comportarse como parte del mismo sitio.</p>'],
-    ['text', 'Mi <em>parte</em>', '<p>Maqueté en Webflow las páginas del sitio a partir de los diseños del equipo. Eso significa <b>construir cada sección, respetar la misma estructura en todas las páginas de solución y ajustar cómo se reacomoda cada bloque en tableta y celular</b>.</p><p>Como diseñador, maquetar me permite cuidar lo que suele perderse entre el archivo de diseño y la web publicada: espacios, jerarquía tipográfica y el orden en que se lee cada bloque en una pantalla pequeña.</p>'],
+    ['text', 'Mi <em>parte</em>', '<p>Maqueté en Webflow las páginas del sitio a partir de los diseños del equipo. Eso significa <b>armar cada sección, respetar la misma estructura en todas las páginas de solución y ajustar cómo se reacomoda cada bloque en tableta y celular</b>.</p><p>Como diseñador, maquetar me permite cuidar lo que suele perderse entre el archivo de diseño y la web publicada: espacios, jerarquía tipográfica y el orden en que se lee cada bloque en una pantalla pequeña.</p>'],
     ['grid', 2, [
       ["$A/sitio-magneto/03-agentes-seleccion-ia.jpg", 'Página de agentes de selección con IA', '<b>Agentes de selección con IA.</b> La plantilla aplicada a un producto nuevo.'],
       ["$A/sitio-magneto/06-reclutamiento-redes-sociales.jpg", 'Página de reclutamiento en redes sociales', '<b>Reclutamiento en redes sociales.</b> Misma estructura, otro mensaje.'],
@@ -41,10 +41,10 @@ my @cases = (
       ["$A/sitio-magneto/04-coffee-break.jpg", 'Hub del videopodcast Coffee Break', '<b>Coffee Break.</b> Hub de casos de éxito en video.'],
       ["$A/sitio-magneto/08-ebooks-guias.jpg", 'Biblioteca de e-books', '<b>Biblioteca de e-books.</b> Las portadas editoriales como catálogo.'],
     ], '/ Contenido'],
-    ['points', 'Lo que cuidé al <em>construir</em>', [
+    ['points', 'Lo que cuidé en <em>cada página</em>', [
       ['Fiel al diseño', 'Espacios, tamaños y jerarquía tipográfica iguales al diseño aprobado, no aproximados.'],
       ['Una estructura que se repite', 'Las páginas de solución comparten la misma estructura, así cada página nueva sale más rápido y el sitio se mantiene coherente.'],
-      ['Responsive de verdad', 'Cada bloque se reordena en una sola columna en el celular sin perder el encabezado ni el orden de lectura.'],
+      ['Pensado para el celular', 'Cada bloque se reordena en una sola columna en el celular sin perder el encabezado ni el orden de lectura.'],
     ]],
   ],
 },
