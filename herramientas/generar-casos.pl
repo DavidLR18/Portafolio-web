@@ -8,6 +8,7 @@ binmode STDOUT, ':utf8';
 
 my $root = File::Spec->rel2abs(dirname(__FILE__) . '/../sitio');
 my $A = '../assets/casos';
+my $SITE = 'https://davidlr18.github.io/Portafolio-web/';  # published address, for link previews
 our %DESC; require File::Spec->catfile(dirname(File::Spec->rel2abs(__FILE__)), 'descripciones.pl');
 
 my @cases = (
@@ -335,6 +336,8 @@ for my $i (0..$#cases) {
   my $c = $cases[$i]; my $n = $cases[($i + 1) % @cases];
   my $num = sprintf '%02d', $i + 1;
   (my $plain = $c->{title}) =~ s/<[^>]+>//g;
+  (my $ogimg = $c->{cover}[0]) =~ s{^\.\./}{$SITE};
+  my $ogurl = "${SITE}casos/$c->{slug}.html";
   my $blocks = join "\n", map { block($_) } @{$c->{blocks}};
   my $html = <<"HTML";
 <!doctype html>
@@ -347,9 +350,12 @@ for my $i (0..$#cases) {
 <meta property="og:type" content="article">
 <meta property="og:title" content="$plain — David Londoño R.">
 <meta property="og:description" content="$c->{summary}">
-<meta property="og:image" content="$c->{cover}[0]">
+<link rel="canonical" href="$ogurl">
+<meta property="og:url" content="$ogurl">
+<meta property="og:image" content="$ogimg">
 <meta property="og:locale" content="es_CO">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="$ogimg">
 <link rel="icon" href="../assets/logo/icono-disco.svg">
 <meta name="theme-color" content="#F4F2F3">
 <link rel="preconnect" href="https://fonts.googleapis.com">

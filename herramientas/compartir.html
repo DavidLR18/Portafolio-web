@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<!-- Source of sitio/assets/img/compartir.jpg (link preview, 1200 × 630).
+     Render it with: sh herramientas/generar-compartir.sh -->
+<link href="https://fonts.googleapis.com/css2?family=Fragment+Mono&family=Raleway:wght@400..700&display=swap" rel="stylesheet">
+<style>
+  :root{--ciruela:#890965;--papel:#F4F2F3;--noche:#17121A;--tinta-2:#56515A;--piedra:#D8D0D0}
+  *{box-sizing:border-box;margin:0}
+  html,body{width:1200px;height:630px;overflow:hidden;background:var(--papel)}
+  body{position:relative;font-family:"Raleway",sans-serif;font-feature-settings:"lnum" 1;color:var(--noche);-webkit-font-smoothing:antialiased}
+  /* plum rule on the top edge, as on the CVs */
+  body::before{content:"";position:absolute;left:0;top:0;width:240px;height:8px;background:var(--ciruela)}
+  .copy{position:absolute;left:72px;top:72px;width:660px;height:486px;display:flex;flex-direction:column}
+  .logo{height:40px;width:auto;align-self:flex-start}
+  .mono{font:400 19px/1.3 "Fragment Mono",monospace;color:var(--tinta-2)}
+  .copy .mono:first-of-type{margin-top:44px}
+  h1{margin-top:16px;font:600 68px/.98 "Raleway",sans-serif;letter-spacing:-.045em}
+  h1 em{display:block;font-style:normal;color:var(--ciruela)}
+  .url{margin-top:auto;color:var(--ciruela)}
+  /* portrait on the plum disc, cut by the bottom edge like the hero */
+  .disc{position:absolute;right:-30px;bottom:-200px;width:560px;height:560px;border-radius:50%;background:var(--ciruela)}
+  .portrait{position:absolute;right:30px;bottom:0;height:560px;width:auto}
+</style>
+</head>
+<body>
+  <div class="copy">
+    <img class="logo" src="../sitio/assets/logo/logo.svg" alt="">
+    <p class="mono">Diseñador de marca y web · Medellín</p>
+    <h1>Diseño marcas que conectan <em>empresas con personas.</em></h1>
+    <p class="mono url">davidlr18.github.io/Portafolio-web</p>
+  </div>
+  <div class="disc"></div>
+  <img class="portrait" src="../sitio/assets/img/david-color.png" alt="">
+</body>
+</html>
