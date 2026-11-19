@@ -9,7 +9,7 @@ El sitio es HTML, CSS y JavaScript sin frameworks. Cada vez que se suben cambios
 | Carpeta | Contenido |
 |---|---|
 | `sitio/` | El sitio publicado: página principal, 9 casos e imágenes. |
-| `hoja-de-vida/` | Hojas de vida en HTML (integral, diseño y docencia) y sus PDF en `pdf/`. |
+| `hoja-de-vida/` | Hojas de vida en HTML (integral, diseño y docencia), sus PDF en `pdf/` y su diseño en Pencil en `hojas-de-vida.pen` (imágenes en `images/`). |
 | `herramientas/` | `generar-casos.pl` (textos de los casos), `descripciones.pl` (textos del visor) y `exportar-hv.sh` (PDF de las hojas de vida). |
 | `marca/` | Manual de marca (HTML y PDF), logos maestros y fotos. |
 | `docs/` | Sistema de diseño. |
