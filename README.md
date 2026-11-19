@@ -11,6 +11,7 @@ El sitio es HTML, CSS y JavaScript sin frameworks. Cada vez que se suben cambios
 | `sitio/` | El sitio publicado: página principal, 9 casos e imágenes. |
 | `hoja-de-vida/` | Hojas de vida en HTML (integral, diseño y docencia) y sus PDF en `pdf/`. |
 | `herramientas/` | `generar-casos.pl` (textos de los casos), `descripciones.pl` (textos del visor) y `exportar-hv.sh` (PDF de las hojas de vida). |
+| `marca/` | Manual de marca (HTML y PDF), logos maestros y fotos. |
 | `docs/` | Sistema de diseño. |
 | `diseno/` | Archivo de diseño `.pen`. |
 | `direcciones/` | Las tres direcciones visuales exploradas al inicio. |
@@ -25,9 +26,9 @@ perl herramientas/generar-casos.pl
 
 Vuelve a crear las 9 páginas de `sitio/casos/` a partir de los textos de `herramientas/`.
 
-## Temas de color
+## Marca
 
-El sitio abre en verde. La versión morada se ve agregando `?tema=morado` a la dirección. El tema por defecto está en `sitio/assets/js/tema.js`.
+El manual de marca y la guía de estilos están en `marca/manual-de-marca.html`, con su versión en PDF en `marca/manual-de-marca.pdf`. Los logos maestros están en `marca/logo/`. Las reglas para el código están en `docs/design-system.md`.
 
 ## Exportar las hojas de vida
 

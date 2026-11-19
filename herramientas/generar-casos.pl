@@ -296,7 +296,8 @@ my @cases = (
 },
 );
 
-my $arrow = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+my $arrow = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="miter" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg>';
+my $open  = '<span class="c"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="miter" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></span>';
 
 # data-zoom attributes for the visor: title from the caption's bold text (or the alt), description from %DESC
 sub esc { my $s = shift // ''; $s =~ s/<[^>]+>//g; $s =~ s/&(?!amp;)/&amp;/g; $s =~ s/"/&quot;/g; return $s; }
@@ -349,19 +350,18 @@ for my $i (0..$#cases) {
 <meta property="og:image" content="$c->{cover}[0]">
 <meta property="og:locale" content="es_CO">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="../assets/logo/icono-negro.svg">
+<link rel="icon" href="../assets/logo/icono-disco.svg">
+<meta name="theme-color" content="#F4F2F3">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital\@0;1&family=Raleway:ital,wght\@0,200..800;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fragment+Mono&family=Raleway:wght\@400..700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/css/caso.css">
 <link rel="stylesheet" href="../assets/css/visor.css">
-<link rel="stylesheet" href="../assets/css/tema-verde.css">
-<script src="../assets/js/tema.js"></script>
 </head>
 <body>
 <header class="top">
   <div class="container">
-    <a class="logo" href="../index.html" aria-label="David Londoño R., inicio"><img src="../assets/logo/logo-negro.svg" alt="David Londoño R."></a>
+    <a class="logo" href="../index.html" aria-label="David Londoño R., inicio"><img src="../assets/logo/logo.svg" alt="David Londoño R." width="139" height="34"></a>
     <nav aria-label="Principal"><a href="../index.html#trabajo" aria-current="true">Trabajo</a><a href="../index.html#proceso">Proceso</a><a href="../index.html#trayectoria">Trayectoria</a><a href="../index.html#perfil">Perfil</a><a href="../index.html#contacto">Contacto</a></nav>
     <a class="back" href="../index.html#trabajo">← Todos los proyectos</a>
   </div>
@@ -393,9 +393,9 @@ $blocks
   <div class="container center">
     <span class="eyebrow">/ Contacto</span>
     <h2>¿Diseñamos <em>lo que sigue?</em></h2>
-    <a class="btn" href="mailto:davidlond08\@gmail.com">$arrow davidlond08\@gmail.com</a>
+    <a class="btn" href="mailto:davidlond08\@gmail.com">davidlond08\@gmail.com$open</a>
     <div class="row">
-      <img src="../assets/logo/logo-negro.svg" alt="David Londoño R.">
+      <img src="../assets/logo/logo.svg" alt="David Londoño R." width="123" height="30">
       <nav aria-label="Redes"><a href="https://www.behance.net/davidlr18">Behance</a><a href="https://www.linkedin.com/in/david-londoño-r">LinkedIn</a><a href="tel:+573193610678">+57 319 361 0678</a></nav>
       <span>© 2026 · Medellín, Colombia</span>
     </div>

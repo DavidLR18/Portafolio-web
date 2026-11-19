@@ -1,161 +1,157 @@
 # Design system — David Londoño R. portfolio
 
-Version 1.0 · November 2026
+Version 2.0 · November 2026
 
-- **Source of truth for values:** the `@layer tokens` block in `sitio/index.html`. If this file and the CSS disagree, the CSS wins and this file gets fixed.
-- **Visual reference:** `diseno/portafolio.pen`, boards *Sistema · Fundamentos* and *Sistema · Componentes*. The Pen.Dev variables use the same names as the CSS tokens, without the `--color-` prefix.
+- **Brand source of truth:** `marca/manual-de-marca.html` (PDF in `marca/manual-de-marca.pdf`). This file translates it into code rules.
+- **Source of truth for values:** the `@layer tokens` block in `sitio/index.html` and the `:root` block in `sitio/assets/css/caso.css`. Both carry the same values. If this file and the CSS disagree, the CSS wins and this file gets fixed.
 - **UI copy** is Spanish (es-CO). Code, comments and this document are English.
 
 ## Principles
 
-1. **Editorial and warm.** Raleway does the work. Instrument Serif italic accents one word or phrase per headline, never more.
-2. **Lime is light, not text.** Lime is used for dots, glows, borders and accents on the dark panel. On light backgrounds, accent text is `--color-accent` (forest ink).
-3. **Few boxes.** Hierarchy comes from size and space. Use a card only when it groups something that can be opened.
-4. **Move in, never fade.** Motion uses `transform` only; text is always readable. Everything respects `prefers-reduced-motion`.
+1. **Craft before ornament.** Hierarchy comes from size, weight and space, not from effects. No shadows, no glass, no decorative gradients.
+2. **One gesture: the facet.** Images lose their top-left corner at 25°, the angle of the mark's top edge. It is the only graphic device.
+3. **Plum is scarce.** At most two plum elements per screen: the accent word of the headline and one primary button.
+4. **The gradient lives only in the mark.** Plum → cobalt never appears as a background, button, text or border.
+5. **Real work first.** Real portrait, real pieces. No stock photos, no generated people.
 
 ## Color
 
 ### Primitives
 
-| Token | Value | Name |
-|---|---|---|
-| `--lime` | `#B7D900` | Lima |
-| `--forest` | `#2E6B12` | Verde bosque |
-| `--forest-ink` | `#24560E` | Bosque tinta |
-| `--paper` | `#F1F2EC` | Papel |
-| `--white` | `#FFFFFF` | Blanco |
-| `--sage` | `#E6E9DD` | Salvia |
-| `--night` | `#121410` | Noche |
-| `--ink-900` | `#111111` | Tinta |
-| `--ink-600` | `#55545C` | Tinta 2 |
-| `--ink-400` | `#6E6D76` | Tinta 3 |
+| Token | Value | Name | Role |
+|---|---|---|---|
+| `--ciruela` | `#890965` | Ciruela | Action and emphasis |
+| `--ciruela-800` | `#590642` | Ciruela 800 | Primary button hover |
+| `--ciruela-50` | `#F6EBF3` | Ciruela 50 | Status ring, tints |
+| `--cobalto` | `#122CA2` | Cobalto | Information, focus ring |
+| `--orquidea` | `#EBA9D6` | Orquídea | Plum's stand-in on dark |
+| `--cielo` | `#A7B5F7` | Cielo | Cobalt's stand-in on dark (reserved) |
+| `--piedra` | `#D8D0D0` | Piedra | Portrait discs |
+| `--papel` | `#F4F2F3` | Papel | Page background |
+| `--well` | `#EAE5E7` | — | Image wells, cards, filter track |
+| `--noche` | `#17121A` | Noche | Text, dark panel, solid buttons |
+| `--ink-600` | `#56515A` | Tinta 2 | Body copy |
+| `--ink-400` | `#6E6872` | Tinta 3 | Metadata only |
 
-### Semantic tokens
-
-Components use only these tokens, never the primitive or a raw hex.
+### Semantic tokens (home page)
 
 | Token | Maps to | Use |
 |---|---|---|
-| `--color-bg` | paper | Page background |
-| `--color-surface` | white | Cards, chips, active filter, status pill |
-| `--color-card` | sage | Image wells, inactive stages, filter track |
-| `--color-ink` | ink-900 | Headlines, primary text, solid buttons |
-| `--color-ink-2` | ink-600 | Body copy, descriptions, eyebrows |
-| `--color-ink-3` | ink-400 | Metadata only (years, client names) |
-| `--color-line` | `rgba(17,17,17,.12)` | 1 px borders and dividers |
-| `--color-accent` | forest-ink | Serif accent word, focus ring, current stage |
-| `--color-highlight` | lime | Dots, step numbers, badges, accent on dark |
-| `--color-dark` | night | Process panel |
-| `--color-on-dark` | white | Text on the dark panel |
-| `--color-on-dark-2` | `rgba(255,255,255,.72)` | Secondary text on the dark panel |
-| `--color-line-dark` | `rgba(255,255,255,.16)` | Dividers on the dark panel |
-| `--glow-lime` / `--glow-forest` | lime 45 % / forest 22 % | Radial glows behind portraits and the footer |
+| `--color-bg` | papel | Page |
+| `--color-surface` | white | Chips, status pill, active filter, current stage |
+| `--color-card` | well | Image wells, stages, profile panel |
+| `--color-disc` | piedra | Disc behind the portrait |
+| `--color-ink` / `-2` / `-3` | noche / ink-600 / ink-400 | Text levels |
+| `--color-accent` | ciruela | Accent word, primary button, current stage ring, badge |
+| `--color-accent-on-dark` | orquidea | Accent word and numbers on the dark panel |
+| `--color-info` | cobalto | Focus ring |
+| `--color-dark` | noche | Process panel |
 
-### Contrast (WCAG 2.1, measured)
+Case pages use the short names (`--bg`, `--card`, `--ink-2`, `--accent`, `--info`) with the same values.
+
+### Contrast (WCAG 2.1)
 
 | Pair | Ratio | Rule |
 |---|---|---|
-| ink / bg | 16.8 : 1 | Any size |
-| ink-2 / bg | 6.6 : 1 | Any size |
-| ink-3 / bg | 4.5 : 1 | Metadata only. **Not on sage** (4.1 : 1) |
-| accent / bg | 7.7 : 1 | Any size |
-| lime / dark | 11.4 : 1 | Any size |
-| ink / lime | 11.6 : 1 | Badges |
-| lime / bg | 1.4 : 1 | **Never as text** |
+| noche / papel | 16.6 : 1 | Any size |
+| ink-600 / papel | 6.9 : 1 | Body |
+| ink-400 / papel | 4.9 : 1 | Metadata only. **Not on well or piedra** |
+| ciruela / papel | 8.2 : 1 | Any size |
+| white / ciruela | 9.2 : 1 | Primary button |
+| orquidea / noche | 9.8 : 1 | Accent on dark |
+| ciruela / noche | 2.0 : 1 | **Never as text** |
 
 ## Typography
 
-Two families from Google Fonts: **Raleway** (variable, 200–800) and **Instrument Serif** (italic 400). No third family.
+**Raleway** (400–700, the logo's typeface) and **Fragment Mono** (400). No third family; Instrument Serif was removed in v2.0. Raleway always runs with `font-feature-settings:"lnum"`.
 
-| Style | Family · weight | Size (mobile → desktop) | Line height · tracking | Use |
+| Style | Family · weight | Size | Line · tracking | Use |
 |---|---|---|---|---|
-| Display | Raleway 500 | 40 → 84 px | 1.0 · −0.042em | Hero headline, centered, two lines |
-| Display accent | Instrument Serif italic | 1.2em of display | 0.95 · −0.02em | Second hero line («empresas con personas.») |
-| Footer display | Raleway 500 | 52 → 128 px | 0.95 · −0.047em | Contact headline |
-| H2 | Raleway 500 | 34 → 56 px | 1.06 · −0.035em | Section title; accent word at 1.18em serif |
-| H3 | Raleway 600 | 18 → 28 px | 1.25 · −0.015em | Cards, steps, stages |
-| Eyebrow | Instrument Serif italic | 19 → 22 px | 1.2 | `NN / Section name` above every H2 |
+| Display | Raleway 600 | 40 → 88 px | 0.98 · −0.042em | Hero headline |
+| Footer display | Raleway 600 | 48 → 120 px | 0.95 · −0.047em | Contact headline |
+| H2 | Raleway 600 | 30 → 48 px | 1.06 · −0.03em | Section titles |
+| H3 | Raleway 600 | 18 → 30 px | 1.1–1.25 | Cards, steps, stages |
 | Lead | Raleway 400 | 17 → 20 px | 1.5 | Hero intro |
-| Body | Raleway 400 | 17 px (profile 18) | 1.6 | Paragraphs |
-| Stat | Raleway 300 | 30 → 40 px | 1.0 · −0.04em | Numbers |
-| Label | Raleway 600 | 13 → 16 px | 1.0 | Buttons, menu, filters |
-| Meta | Raleway 500 | 13 → 15 px | 1.3 | Years, credits |
+| Body | Raleway 400 | 17 px | 1.6 | Paragraphs |
+| Label | Raleway 600 | 14 → 16 px | 1.0 | Buttons, menu, filters |
+| Technical | Fragment Mono 400 | 11 → 13 px | 1.4 | Eyebrows `NN / Section`, years, menu numbers, meta labels |
 
-Rules: body text never below 14 px; at most three lines of centered text; line length 50–75 characters; use `text-wrap: balance` on headings.
+Accent: one word or short phrase per headline in `<em>`, rendered upright in `--color-accent` (orquídea on dark). No italics, no all-caps eyebrows.
 
 ## Space, layout and shape
 
 | Token | Value | Use |
 |---|---|---|
-| space-1 … space-9 | 4 · 8 · 12 · 16 · 24 · 32 · 48 · 64 · 128 | 4 px scale (Pen.Dev variables; CSS uses the literal values) |
+| space scale | 4 · 8 · 12 · 16 · 24 · 32 · 48 · 64 · 96 · 128 | Literal values in CSS |
 | `--gutter` | `clamp(16px, 4.4vw, 64px)` | Side margin |
 | `--max` | 1312 px | Content width |
-| `--section` | `clamp(64px, 9vw, 128px)` | Space between sections |
+| `--section` | `clamp(64px, 9vw, 128px)` | Between sections |
 
-| Radius | Value | Use |
+| Shape | Value | Use |
 |---|---|---|
-| `--r-sm` | 14 px | Thumbnails |
-| `--r-md` | 24 px | Case images, stages |
-| `--r-lg` | `clamp(20px, 2.2vw, 32px)` | Panels |
-| `--r-xl` | `clamp(28px, 3vw, 40px)` | Portrait, dark panel |
+| Facet | `--fx: clamp(40px,6vw,96px)`, `--fy: --fx × 0.466` | Case images, stage thumbs, profile panel, case covers, next-case image |
+| `--r-panel` | 20 px | Dark panel, stages, frames, mobile menu |
+| `--r-sm` / `--r-img` | 12 px | Images inside case frames |
 | `--pill` | 999 px | Buttons, menu, filters, chips |
 
-**Breakpoints:** 1180 px hides menu numbers · 980 px is tablet (one column profile, two-column grids) · 760 px is mobile (dropdown menu, one column, stacked buttons).
+```css
+clip-path: polygon(0 var(--fy), var(--fx) 0, 100% 0, 100% 100%, 0 100%);
+```
 
-**Surfaces:** page (`bg`, no shadow) · hero (full-bleed radial glows on `bg`, lime bottom-left, forest top-right, white top-center; reaches up behind the header) · card (`surface` + 1 px `line`, no shadow) · lime glow (`card` + radial lime, profile photo) · dark panel (`dark` + radial lime 20 %) · closing (`bg` + two radials at the bottom, contact only). Drop shadows appear only on the open mobile menu.
+**Breakpoints:** 1180 px hides menu numbers · 980 px tablet · 760 px mobile.
+
+**Surfaces:** no shadows anywhere except the open mobile menu. The hero has no glows: the portrait stands on a Piedra disc. The header turns solid Papel with a hairline after 8 px of scroll.
+
+## Logo
+
+- Header and footer use `assets/logo/logo.svg` (color mark + Noche wordmark), 34 px and 30 px tall.
+- Tagline uses `assets/logo/icono.svg`. Favicon is `assets/logo/icono-disco.svg`.
+- `logo-negro.svg` and `icono-negro.svg` remain only for the CVs in `hoja-de-vida/`.
+- Clear space: one cap height of the «D» (≈ 29 % of the logo height). Minimum: 140 px wide, mark alone 28 px tall.
 
 ## Iconography
 
-Lucide-style line icons drawn inline as SVG: stroke 2, round caps and joins, 18–22 px, `currentColor`. An icon always sits next to a word; an icon on its own (the menu button) carries an `aria-label`. Icons in use: arrow-right, arrow-down, arrow-up-right, download, mail, message-circle, menu, x, search, pen-tool, layers.
-
-## Motion
-
-| Kind | Spec | Where |
-|---|---|---|
-| Entrance | `translateY(28px) → 0`, 700 ms, staggered 110 ms | `.rise`, once, on scroll into view |
-| Interface | 200–250 ms, `cubic-bezier(.2,.7,.2,1)` | Button hover (−2 px), header, menu, filters |
-| Image | `scale(1.03)`, 500 ms | Case card hover |
-| Reduced motion | Without `no-preference`, no entrance and no smooth scroll | Global |
-
-Never animate text opacity; never move anything more than 28 px.
+Inline SVG on a 24 px grid: stroke 1.75, `stroke-linejoin="miter"`, butt caps, `currentColor`, no fill. 18–22 px, always next to a word. Set: arrow-right, arrow-down, arrow-up-right (inside the primary button's disc), download, search, draw, layers, menu, x, message.
 
 ## Components
 
-Each one is a reusable component on the *Sistema · Componentes* board.
-
-| Component | Class in code | Rules |
+| Component | Class | Rules |
 |---|---|---|
-| Hero | `.hero` | Tagline + two-line centered H1. Below it a 3-column grid: the cut-out portrait in the middle with no frame, faded at the bottom with a mask; status (top left), lead (top right), 9-case link with thumbnails (bottom left) and CTAs (bottom right). At 980 px and below it stacks centered: status, portrait, lead, CTAs, and the case link is hidden. |
-| Primary button | `.btn.btn-solid` | One per zone. 56 px tall (46 in the header). Pill. |
-| Secondary button | `.btn.btn-line` | Alternative action. 1 px ink border. |
-| Header | `.top` | Sticky; gains `.scrolled` (translucent + blur) after 8 px. Logo · menu · CV + Escríbeme. |
-| Menu option | `.top nav a` | Section number + label. The section in view gets `aria-current="true"` (ink fill). |
-| Mobile menu | `.menu-btn` + `.top.open` | Below 760 px. Closes on Escape, outside click or link. Includes Escríbeme and CV. |
-| Status pill | `.status` | Lime dot with forest ring. Once, in the hero. |
-| Menu number | `.top nav a small` | `--color-ink-3`; on the active option `--color-on-dark-2`. No opacity tricks: they broke contrast. |
-| Chip | `.chips li` | Non-interactive list (tools). |
-| Filter | `.filters button` | `aria-pressed`. Track in `card`; the active filter is `surface`. Hidden without JS. |
-| Section heading | `.eyebrow` + `.h2` | `NN / Name` + H2 with one `<em>` accent. On dark the accent is lime. |
-| Stat | `.proof dl div` | Number + label up to two lines, in a band between hairlines, never in cards. |
-| Case card | `.case` | Whole card is the link. Image without frame or shadow. Feature spans 8/12 and two rows. |
-| Stage | `.stage` / `.stage.now` | Four in a row; the most recent is white with a lime ring and the «Reciente» badge. Becomes a list on mobile. |
-| Process step | `.step` | Dark panel only. Lime number, icon on the right, `line-dark` dividers. Three steps. |
+| Primary button | `.btn.btn-pri` | Plum pill, label then the arrow in a white 40 px disc. One per zone (hero, footer, case footer). |
+| Solid button | `.btn.btn-solid` | Noche pill. Header «Escríbeme». |
+| Line button | `.btn.btn-line` | 1 px ink border. Secondary actions. |
+| Header | `.top` | Sticky; `.scrolled` = Papel + hairline. Color logo · menu · CV + Escríbeme. |
+| Hero | `.hero` | Centered two-line H1, the second line in plum. Medium-shot portrait on the Piedra disc, bottom 10 % fades. |
+| Status pill | `.status` | Plum dot with a Ciruela 50 ring. |
+| Case card | `.case` | Whole card is the link; faceted image; title turns plum on hover; year in mono. |
+| Process panel | `.panel` | Noche, 20 px radius, orquídea accent and mono step numbers. |
+| Stage | `.stage` / `.stage.now` | Well card; current stage white with a 2 px plum ring and plum «Reciente» badge. |
+| Profile photo | `.photo` | Faceted well, Piedra disc, portrait seated on the bottom edge. |
+| Case meta | `.meta` (caso.css) | Four columns between hairlines, mono labels. |
+| Case reasons | `.points` (caso.css) | List with a 2 px ink top rule, mono plum number. No cards. |
+
+## Motion
+
+| Kind | Spec |
+|---|---|
+| Entrance | `translateY(28px) → 0`, 700 ms, staggered |
+| Interface | 200–250 ms, `cubic-bezier(.2,.7,.2,1)`, buttons lift 2 px |
+| Image | `scale(1.03)`, 500 ms on case hover |
+
+Everything respects `prefers-reduced-motion`. Text is never faded.
 
 ## Accessibility baseline
 
-- Skip link to `#main`; landmarks: header, nav, main, footer.
-- Visible focus: 3 px `--color-accent` outline, offset 3 px.
-- Touch targets: buttons 46–56 px and mobile menu options 52 px. Desktop menu options and filters are 40 px: above the 24 px WCAG 2.2 AA minimum, below the 44 px AAA target.
-- Decorative images use `alt=""`; work images describe the piece.
-- Checked with axe-core 4.10 (WCAG 2 A/AA + best practices): 0 violations on the home page, November 2026.
+Skip link, landmarks, visible 3 px Cobalto focus ring, 46–56 px touch targets (40 px for desktop menu and filters), decorative images with `alt=""`.
 
 ## Changing the system
 
-1. Change the token in `@layer tokens` (`sitio/index.html`). Case pages use `sitio/assets/css/caso.css` and `tema-verde.css`; keep them in step.
-2. Update the matching Pen.Dev variable or component in `diseno/portafolio.pen`.
-3. Update this file, including the contrast table if a color changed.
+1. Change the token in `sitio/index.html` and `sitio/assets/css/caso.css`.
+2. Case markup comes from `herramientas/generar-casos.pl`; edit the template there and run it, never the generated HTML.
+3. Update `marca/manual-de-marca.html`, re-export its PDF, and update this file (contrast table included).
 
 ## Known gaps
 
-- Case pages (`caso.css`) still use the older token names (`--ink-2`, `--plum`, `--blue`; the last two are recolored to green by `tema-verde.css`) instead of the semantic tokens above.
-- The proposal screens in `portafolio.pen` are not built from the components yet. Their hero matches the site (centered portrait, no card); the bottom fade is drawn there as a gradient rectangle instead of a mask.
+- `diseno/portafolio.pen` still holds the v1 green variables; Pencil was not running during the v2.0 migration.
+- The CVs in `hoja-de-vida/` keep the v1 look and the black-and-white portrait.
+- `assets/img/david-color.png` is a 1.1 MB PNG; a WebP export would cut it to about 200 KB.
