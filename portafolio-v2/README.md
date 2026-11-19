@@ -2,7 +2,7 @@
 
 Una segunda versión del portafolio, hecha como proyecto aparte. Usa el manual de marca (`../marca/manual-de-marca.html`) y toma la composición de dos referentes: la barra oscura flotante, el retrato sobre un disco que el panel oscuro tapa por debajo, los proyectos en filas en lugar de tarjetas, el proceso paso a paso y una cinta inclinada de marca.
 
-No se publica: GitHub Pages solo publica `../sitio/`. Los enlaces a los casos y a la hoja de vida apuntan a `../sitio/`, así que se ven bien abriendo la página desde este repositorio.
+Desde la versión 2.1 esta página es el inicio publicado: vive en `../sitio/index.html`, con `../sitio/assets/css/inicio.css` y `../sitio/assets/js/inicio.js`. Esta carpeta queda como fuente de la propuesta y del archivo de Pencil; los cambios al sitio se hacen en `../sitio/`. Los enlaces a los casos y a la hoja de vida apuntan a `../sitio/`, así que se ven bien abriendo la página desde este repositorio.
 
 ## Estructura
 

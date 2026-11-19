@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>David Londoño R. — Diseñador de Marca y Web</title>
 <meta name="description" content="Portafolio de David Londoño R., diseñador visual y especialista en Gerencia de Marca en Medellín. Sitios web, campañas B2B, editorial y sistemas de marca desde 2009.">
 <meta property="og:type" content="website">
@@ -11,490 +11,244 @@
 <meta property="og:image" content="assets/img/compartir.jpg">
 <meta property="og:locale" content="es_CO">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="assets/logo/icono-disco.svg">
 <meta name="theme-color" content="#F4F2F3">
+<link rel="icon" href="assets/logo/icono-disco.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fragment+Mono&family=Raleway:wght@400..700&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="assets/img/david-color.png" fetchpriority="high">
-<style>
-@layer reset, tokens, base, components;
-
-@layer reset{
-  *,*::before,*::after{box-sizing:border-box;margin:0}
-  img{display:block;max-width:100%;height:auto}
-  button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
-  ul,ol{list-style:none;padding:0}
-}
-
-@layer tokens{
-  :root{
-    /* primitives: brand manual v1.0 (marca/manual-de-marca.html) */
-    --ciruela:#890965; --ciruela-800:#590642; --ciruela-50:#F6EBF3; --cobalto:#122CA2;
-    --orquidea:#EBA9D6; --cielo:#A7B5F7; --piedra:#D8D0D0;
-    --papel:#F4F2F3; --white:#FFFFFF; --well:#EAE5E7; --noche:#17121A;
-    --ink-600:#56515A; --ink-400:#6E6872;
-    /* semantic */
-    --color-bg:var(--papel); --color-surface:var(--white); --color-card:var(--well); --color-disc:var(--piedra);
-    --color-ink:var(--noche); --color-ink-2:var(--ink-600); --color-ink-3:var(--ink-400);
-    --color-line:rgba(23,18,26,.13); --color-accent:var(--ciruela); --color-accent-hover:var(--ciruela-800); --color-info:var(--cobalto);
-    --color-dark:var(--noche); --color-on-dark:var(--white); --color-on-dark-2:rgba(255,255,255,.72); --color-line-dark:rgba(255,255,255,.16);
-    --color-accent-on-dark:var(--orquidea);
-    --sans:"Raleway",system-ui,sans-serif; --mono:"Fragment Mono",ui-monospace,"SF Mono",Menlo,monospace;
-    /* the facet: top-left corner cut at 25°, the angle of the mark's top edge */
-    --fx:clamp(40px,6vw,96px); --fy:calc(var(--fx) * .466);
-    --gutter:clamp(16px,4.4vw,64px); --max:1312px;
-    --section:clamp(64px,9vw,128px);
-    --r-panel:20px; --r-sm:12px; --pill:999px;
-    --ease:cubic-bezier(.2,.7,.2,1);
-  }
-}
-
-@layer base{
-  html{background:var(--color-bg);color:var(--color-ink);scroll-padding-top:88px}
-  @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
-  body{font:400 17px/1.6 var(--sans);font-feature-settings:"lnum" 1;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-  a{color:inherit}
-  :focus-visible{outline:3px solid var(--color-info);outline-offset:3px;border-radius:6px}
-  .container{width:min(100% - 2*var(--gutter),var(--max));margin-inline:auto}
-  .skip{position:absolute;left:16px;top:-60px;z-index:50;background:var(--color-ink);color:var(--color-on-dark);padding:12px 18px;border-radius:var(--pill);text-decoration:none;font-weight:600}
-  .skip:focus{top:16px}
-  .eyebrow{display:block;font:400 13px/1.4 var(--mono);color:var(--color-ink-2)}
-  .h2{font:600 clamp(30px,3.6vw,48px)/1.06 var(--sans);letter-spacing:-.03em;margin-top:12px;text-wrap:balance}
-  .h2 em,.hero h1 em,.foot h2 em{font-style:normal;color:var(--color-accent)}
-  .faceta{clip-path:polygon(0 var(--fy),var(--fx) 0,100% 0,100% 100%,0 100%)}
-  .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
-}
-
-@layer components{
-  /* buttons */
-  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 28px;border-radius:var(--pill);font:600 15px/1 var(--sans);text-decoration:none;transition:transform .2s var(--ease),background-color .2s var(--ease)}
-  .btn svg{width:18px;height:18px;flex:none}
-  .btn-solid{background:var(--color-ink);color:var(--color-on-dark)}
-  /* primary: plum pill with the arrow in a white disc; one per zone */
-  .btn-pri{background:var(--color-accent);color:var(--color-on-dark);padding:0 8px 0 26px;gap:16px}
-  .btn-pri:hover{background:var(--color-accent-hover)}
-  .btn-pri .c{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--color-surface);color:var(--color-accent)}
-  .btn-line{border:1px solid var(--color-ink)}
-  .btn-line:hover{background:var(--color-surface)}
-  .btn:hover{transform:translateY(-2px)}
-
-  /* header: stays on screen, marks the section you are reading */
-  .top{position:sticky;top:0;z-index:30;transition:background-color .25s var(--ease),box-shadow .25s var(--ease)}
-  .top.scrolled{background:var(--color-bg);box-shadow:0 1px 0 var(--color-line)}
-  .top .container{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-block:20px;transition:padding .25s var(--ease)}
-  .top.scrolled .container{padding-block:12px}
-  .logo img{height:34px;width:auto}
-  .top nav{display:flex;gap:4px;padding:5px;border-radius:var(--pill);background:rgba(255,255,255,.6);border:1px solid var(--color-line)}
-  .top nav a{display:flex;align-items:center;gap:8px;min-height:40px;padding:0 16px;border-radius:var(--pill);text-decoration:none;font:600 15px/1 var(--sans);color:var(--color-ink-2);transition:background-color .2s var(--ease),color .2s var(--ease)}
-  .top nav a:hover{color:var(--color-ink);background:rgba(255,255,255,.8)}
-  .top nav a[aria-current="true"]{background:var(--color-ink);color:var(--color-on-dark)}
-  .top nav a small{font:400 11px/1 var(--mono);color:var(--color-ink-3)}
-  .top nav a[aria-current="true"] small{color:var(--color-on-dark-2)}
-  .actions{display:flex;align-items:center;gap:8px}
-  .top .btn{min-height:46px;padding:0 20px;font-size:14px}
-  .top .btn-line{background:rgba(255,255,255,.5)}
-  .menu-btn{display:none;width:46px;height:46px;border-radius:var(--pill);background:var(--color-surface);border:1px solid var(--color-line);align-items:center;justify-content:center}
-  .menu-btn svg{width:20px;height:20px}
-  .menu-btn .x,.top.open .menu-btn .bars{display:none}
-  .top.open .menu-btn .x{display:block}
-  .menu-extra{display:none}
-
-  /* hero: centered portrait without a frame, copy at the four corners */
-  .hero{position:relative;isolation:isolate;padding-top:clamp(8px,1.5vw,20px)}
-  .hero-head{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:18px;text-align:center}
-  .tagline{display:inline-flex;align-items:center;gap:10px;font:400 13px/1.2 var(--mono);color:var(--color-ink-2)}
-  .tagline img{height:18px;width:auto}
-  .hero h1{max-width:1200px;font:600 clamp(40px,5.8vw,88px)/.98 var(--sans);letter-spacing:-.042em;text-wrap:balance}
-  .hero h1 em{display:block}
-  .hero-stage{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,500px) minmax(0,1fr);grid-template-rows:auto 1fr auto;
-    grid-template-areas:"tl photo tr" ". photo ." "bl photo br";column-gap:clamp(24px,3vw,48px);margin-top:clamp(-40px,-2.4vw,-12px)}
-  .portrait{grid-area:photo;position:relative;z-index:1;margin:0;align-self:end}
-  /* the portrait stands on a Piedra disc, as the mark does in the disc logo */
-  .portrait::before{content:"";position:absolute;z-index:-1;left:50%;bottom:0;width:min(100%,460px);aspect-ratio:1;transform:translateX(-50%);border-radius:50%;background:var(--color-disc)}
-  /* the box hugs the photo (no letterbox) so the mask lands on its real bottom edge.
-     Medium shot cut at the waist: only the last 10 % fades so the cut stays clean. */
-  .portrait img{display:block;width:auto;max-width:100%;height:auto;max-height:min(60svh,580px);margin-inline:auto;
-    -webkit-mask-image:linear-gradient(#000 90%,transparent 100%);
-    mask-image:linear-gradient(#000 90%,transparent 100%)}
-  .status{grid-area:tl;justify-self:start;align-self:start;margin-top:clamp(56px,7vw,110px);display:inline-flex;align-items:center;gap:10px;padding:9px 16px 9px 12px;border-radius:var(--pill);background:var(--color-surface);border:1px solid var(--color-line);font:500 14px/1.2 var(--sans)}
-  .status i{width:10px;height:10px;border-radius:50%;background:var(--color-accent);box-shadow:0 0 0 3px var(--ciruela-50)}
-  .hero .lead{grid-area:tr;align-self:start;margin-top:clamp(56px,7vw,110px);max-width:340px;font-size:clamp(17px,1.35vw,20px);line-height:1.5;color:var(--color-ink-2)}
-  .hero .lead b{color:var(--color-ink);font-weight:600}
-  .peek{grid-area:bl;align-self:end;display:flex;align-items:center;gap:14px;max-width:320px;padding-bottom:clamp(32px,5vw,72px);text-decoration:none;font-size:14px;line-height:1.4;color:var(--color-ink-2)}
-  .peek b{display:block;color:var(--color-ink);font-weight:600}
-  .peek .thumbs{display:flex;flex:none}
-  .peek .thumbs img{width:48px;height:48px;border-radius:50%;object-fit:cover;object-position:top;border:3px solid var(--color-bg);margin-left:-14px;background:var(--color-card)}
-  .peek .thumbs img:first-child{margin-left:0}
-  .peek:hover b{text-decoration:underline;text-underline-offset:3px}
-  .ctas{display:flex;flex-wrap:wrap;gap:12px}
-  .hero .ctas{grid-area:br;align-self:end;justify-self:end;flex-direction:column;align-items:flex-end;padding-bottom:clamp(32px,5vw,72px)}
-
-  /* proof */
-  .proof{display:flex;align-items:center;justify-content:space-between;gap:24px 40px;flex-wrap:wrap;padding-block:32px;border-block:1px solid var(--color-line)}
-  .proof dl{display:flex;gap:clamp(24px,3vw,40px);flex-wrap:wrap}
-  .proof dl div{display:flex;align-items:center;gap:14px}
-  .proof dt{order:2;max-width:130px;font-size:14px;line-height:1.35;color:var(--color-ink-2)}
-  .proof dd{font:600 40px/1 var(--sans);letter-spacing:-.04em}
-  .clients{display:flex;gap:28px;flex-wrap:wrap;font:600 17px/1 var(--sans);letter-spacing:-.02em;color:var(--color-ink-3)}
-
-  /* work */
-  .work{padding-top:var(--section)}
-  .work-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap}
-  .filters{display:flex;gap:6px;padding:5px;border-radius:var(--pill);background:var(--color-card);overflow-x:auto;scrollbar-width:none;max-width:100%}
-  .filters button{flex:none;min-height:40px;padding:0 16px;border-radius:var(--pill);font:600 14px/1 var(--sans);color:var(--color-ink-2);transition:background-color .2s var(--ease)}
-  .filters button[aria-pressed="true"]{background:var(--color-surface);color:var(--color-ink)}
-  .grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:clamp(20px,2vw,24px);margin-top:48px}
-  .case{grid-column:span 4;display:flex;flex-direction:column;gap:16px;text-decoration:none}
-  .case[hidden]{display:none}
-  .case .media{overflow:hidden;background:var(--color-card);aspect-ratio:4/3.4;clip-path:polygon(0 var(--fy),var(--fx) 0,100% 0,100% 100%,0 100%)}
-  .case img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .5s var(--ease)}
-  .case:hover img{transform:scale(1.03)}
-  .case .info{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
-  .case h3{font:600 20px/1.25 var(--sans);letter-spacing:-.015em}
-  .case p{margin-top:6px;font-size:15px;line-height:1.4;color:var(--color-ink-2)}
-  .case .yr{font:400 13px/1.3 var(--mono);color:var(--color-ink-3);padding-top:4px}
-  .case:hover h3{color:var(--color-accent)}
-  /* featured layout only when showing everything */
-  .grid:not(.is-filtered) .case.feature{grid-column:span 8;grid-row:span 2}
-  .grid:not(.is-filtered) .case.feature .media{aspect-ratio:auto;flex:1;min-height:420px}
-  .grid:not(.is-filtered) .case.feature h3{font-size:28px;letter-spacing:-.03em}
-  .grid:not(.is-filtered) .case.feature{--fx:clamp(56px,8vw,128px)}
-  .grid:not(.is-filtered) .case.side .media{aspect-ratio:16/9.6}
-  .more{display:flex;justify-content:center;margin-top:48px}
-
-  /* process */
-  .process{margin-top:var(--section)}
-  .panel{border-radius:var(--r-panel);padding:clamp(44px,6vw,88px) clamp(24px,5vw,72px);color:var(--color-on-dark);background:var(--color-dark)}
-  .panel-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px 48px;flex-wrap:wrap}
-  .panel .eyebrow{color:var(--color-on-dark-2)}
-  .panel .h2 em{color:var(--color-accent-on-dark)}
-  .panel-head p{max-width:360px;color:var(--color-on-dark-2)}
-  .steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:clamp(40px,5vw,64px)}
-  .step{padding:32px 40px 8px;border-top:1px solid var(--color-line-dark)}
-  .step:first-child{padding-left:0}
-  .step+.step{border-left:1px solid var(--color-line-dark)}
-  .step .top-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:56px}
-  .step .n{font:400 13px/1 var(--mono);color:var(--color-accent-on-dark)}
-  .step svg{width:22px;height:22px;color:var(--color-on-dark-2)}
-  .step h3{font:600 30px/1.1 var(--sans);letter-spacing:-.03em}
-  .step p{margin-top:12px;font-size:16px;line-height:1.55;color:var(--color-on-dark-2)}
-
-  /* timeline */
-  .timeline{padding-top:var(--section)}
-  .years{display:flex;align-items:center;gap:clamp(14px,2vw,24px);margin-top:12px;font:600 clamp(52px,8vw,112px)/.9 var(--sans);letter-spacing:-.05em}
-  .years i{width:clamp(60px,14vw,200px);height:clamp(4px,.5vw,6px);background:var(--color-accent)}
-  .stages{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:48px}
-  .stage{display:flex;flex-direction:column;gap:20px;padding:20px;border-radius:var(--r-panel);background:var(--color-card)}
-  .stage.now{background:var(--color-surface);box-shadow:inset 0 0 0 2px var(--color-accent)}
-  .stage .when{display:flex;justify-content:space-between;align-items:center;font:400 13px/1 var(--mono)}
-  .stage .badge{padding:6px 10px;border-radius:var(--pill);background:var(--color-accent);color:var(--color-on-dark);font:600 12px/1 var(--sans)}
-  .stage .thumb{--fx:36px;height:180px;overflow:hidden;background:var(--color-dark);clip-path:polygon(0 var(--fy),var(--fx) 0,100% 0,100% 100%,0 100%)}
-  .stage .thumb img{width:100%;height:100%;object-fit:cover;object-position:top}
-  .stage .thumb.text{display:flex;align-items:flex-end;padding:16px;background:var(--color-dark);font:600 28px/1 var(--sans);letter-spacing:-.03em;color:var(--color-accent-on-dark)}
-  .stage h3{font:600 18px/1.3 var(--sans);letter-spacing:-.015em}
-  .stage p{margin-top:-12px;font-size:15px;line-height:1.5;color:var(--color-ink-2)}
-
-  /* profile */
-  .profile{display:grid;grid-template-columns:minmax(0,520px) minmax(0,1fr);gap:clamp(40px,6vw,80px);align-items:center;padding-top:var(--section)}
-  .photo{--fx:clamp(56px,7vw,112px);position:relative;aspect-ratio:520/600;overflow:hidden;background:var(--color-card);clip-path:polygon(0 var(--fy),var(--fx) 0,100% 0,100% 100%,0 100%)}
-  .photo::before{content:"";position:absolute;left:8%;right:8%;bottom:-6%;aspect-ratio:1;border-radius:50%;background:var(--color-disc)}
-  .photo img{position:absolute;left:0;bottom:0;width:100%;height:90%;object-fit:contain;object-position:bottom center}
-  .profile .h2{margin-bottom:24px}
-  .profile p{font-size:18px;color:var(--color-ink-2)}
-  .profile p+p{margin-top:1em}
-  .profile p b{color:var(--color-ink);font-weight:600}
-  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px;max-width:520px}
-  .profile .cv{margin-top:32px}
-  .chips li{padding:10px 14px;border-radius:var(--pill);background:var(--color-surface);border:1px solid var(--color-line);font:500 14px/1 var(--sans)}
-
-  /* contact */
-  .foot{margin-top:var(--section);padding:clamp(80px,10vw,140px) 0 36px;text-align:center;border-top:1px solid var(--color-line)}
-  .foot h2{margin-top:16px;font:600 clamp(48px,8.4vw,120px)/.95 var(--sans);letter-spacing:-.047em}
-  .foot h2 em{display:block}
-  .foot .ctas{justify-content:center;margin-top:56px}
-  .foot .btn{min-height:64px;padding:0 32px;font-size:17px}
-  .foot .btn-pri{padding:0 10px 0 30px}
-  .foot .btn-pri .c{width:46px;height:46px}
-  .foot .row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px 28px;margin-top:56px;padding-top:24px;border-top:1px solid var(--color-line);font:500 14px/1.4 var(--sans);color:var(--color-ink-2)}
-  .foot .row img{height:30px;width:auto}
-  .foot .row nav{display:flex;gap:28px;flex-wrap:wrap}
-  .foot .row a{text-decoration:none}
-  .foot .row a:hover{color:var(--color-ink)}
-
-  /* one entrance: transform only, text never fades */
-  @media (prefers-reduced-motion:no-preference){
-    .rise{transform:translateY(28px);transition:transform .7s var(--ease)}
-    .rise.in{transform:none}
-  }
-
-  /* narrow desktop: keep the header on one line */
-  @media (max-width:1180px){.top nav a small{display:none}}
-  /* tablet */
-  @media (max-width:980px){
-    .hero-stage{grid-template-columns:minmax(0,1fr);grid-template-rows:none;grid-template-areas:"tl" "photo" "tr" "br";justify-items:center;margin-top:20px;row-gap:24px}
-    .status{margin-top:0;justify-self:center}
-    .portrait{width:min(100%,440px)}
-    .portrait img{max-height:none}
-    .hero .lead{margin-top:-8px;max-width:560px;justify-self:stretch;margin-inline:auto;text-align:center}
-    .hero .ctas{justify-self:center;align-items:center;flex-direction:row;justify-content:center;padding-bottom:40px}
-    .peek{display:none}
-    .actions .btn-line{display:none}
-    .top nav a{padding:0 12px}
-    .steps{grid-template-columns:1fr}
-    .step,.step:first-child{padding:20px 0 24px}
-    .step+.step{border-left:0}
-    .step .top-row{margin-bottom:16px}
-    .stages{grid-template-columns:1fr 1fr}
-    .profile{grid-template-columns:1fr}
-    .photo{max-width:520px}
-    .grid:not(.is-filtered) .case.feature{grid-column:span 12;grid-row:auto}
-    .grid:not(.is-filtered) .case.feature .media{aspect-ratio:16/10;min-height:0}
-    .case,.grid:not(.is-filtered) .case.side{grid-column:span 6}
-  }
-
-  /* mobile */
-  @media (max-width:760px){
-    .top nav{display:none}
-    .actions{display:none}
-    .menu-btn{display:inline-flex}
-    .top.open{background:var(--color-bg)}
-    .top.open nav{display:flex;flex-direction:column;gap:2px;position:absolute;left:var(--gutter);right:var(--gutter);top:calc(100% + 4px);padding:8px;border-radius:var(--r-panel);background:var(--color-surface);border:1px solid var(--color-line);box-shadow:0 24px 48px -24px rgba(0,0,0,.35)}
-    .top.open nav a{min-height:52px;padding:0 16px;border-radius:var(--r-sm);font-size:17px;color:var(--color-ink)}
-    .top.open nav a small{width:22px}
-    .top.open .menu-extra{display:flex;flex-direction:column;gap:8px;padding:8px 0 4px;margin-top:6px;border-top:1px solid var(--color-line)}
-    .menu-extra .btn{width:100%;border-radius:var(--pill);font-size:16px}
-    .top.open nav a[aria-current="true"],.top.open .menu-extra .btn-solid{color:var(--color-on-dark)}
-    .top.open .menu-extra .btn{border-radius:var(--pill);justify-content:center}
-    .tagline{font-size:12px;align-items:flex-start;text-align:left}
-    .tagline img{height:16px;margin-top:-1px}
-    .hero .ctas{flex-direction:column;align-items:stretch;justify-self:stretch;gap:10px}
-    .hero .ctas .btn{width:100%}
-    .hero .ctas .btn-pri{justify-content:space-between}
-    .foot .btn-pri{justify-content:space-between}
-    .proof dl{width:100%;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-    .proof dl div{flex-direction:column;align-items:flex-start;gap:4px}
-    .proof dd{font-size:30px}
-    .proof dt{font-size:13px}
-    .clients{display:none}
-    .grid{grid-template-columns:1fr;margin-top:28px}
-    .case,.grid:not(.is-filtered) .case.side,.grid:not(.is-filtered) .case.feature{grid-column:auto}
-    .grid:not(.is-filtered) .case.feature h3,.case h3{font-size:18px}
-    .case .media,.grid:not(.is-filtered) .case.side .media,.grid:not(.is-filtered) .case.feature .media{aspect-ratio:358/240}
-    .more .btn{width:100%}
-    .stages{grid-template-columns:1fr;gap:0}
-    .stage,.stage.now{flex-direction:row;align-items:baseline;gap:16px;padding:16px 0;border-radius:0;background:none;box-shadow:none;border-bottom:1px solid var(--color-line)}
-    .stage .thumb,.stage .thumb.text,.stage p,.stage .badge{display:none}
-    .stage .when{flex:none;width:84px;font-size:12px;color:var(--color-ink-3)}
-    .stage.now .when{color:var(--color-accent)}
-    .stage h3{font-weight:500;font-size:16px}
-    .foot .ctas{flex-direction:column}
-    .foot .btn{width:100%;font-size:16px;min-height:56px}
-    .foot .row{flex-direction:column;justify-content:center}
-  }
-}
-</style>
+<link rel="stylesheet" href="assets/css/inicio.css">
 </head>
 <body>
 <a class="skip" href="#main">Saltar al contenido</a>
 
-<header class="top" id="top">
-  <div class="container">
-    <a class="logo" href="#" aria-label="David Londoño R., inicio"><img src="assets/logo/logo.svg" alt="" width="139" height="34"></a>
-    <nav id="menu" aria-label="Principal">
-      <a href="#trabajo"><small aria-hidden="true">01</small>Trabajo</a><a href="#proceso"><small aria-hidden="true">02</small>Proceso</a><a href="#trayectoria"><small aria-hidden="true">03</small>Trayectoria</a><a href="#perfil"><small aria-hidden="true">04</small>Perfil</a>
-      <div class="menu-extra">
-        <a class="btn btn-solid" href="#contacto">Escríbeme</a>
-        <a class="btn btn-line" href="assets/David-Londono-Hoja-de-Vida.pdf" download>Hoja de vida (PDF)</a>
-      </div>
-    </nav>
-    <div class="actions">
-      <a class="btn btn-line" href="assets/David-Londono-Hoja-de-Vida.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="miter" aria-hidden="true"><path d="M12 3v12M6 10l6 6 6-6M4 20h16"/></svg>Hoja de vida</a>
-      <a class="btn btn-solid" href="#contacto">Escríbeme</a>
-    </div>
-    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú"><svg class="bars" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+<header class="nav container" id="nav">
+  <div class="bar">
+    <a class="logo" href="#" aria-label="David Londoño R., inicio"><img src="assets/logo/logo-negativo.svg" alt="" width="123" height="30"></a>
+    <ul id="menu">
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#proyectos">Proyectos</a></li>
+      <li><a href="#trayectoria">Trayectoria</a></li>
+      <li><a href="#proceso">Proceso</a></li>
+      <li><a href="#perfil">Perfil</a></li>
+      <li class="menu-cta"><a class="btn btn-pri" href="#contacto">Escríbeme<span class="c"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="miter" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a></li>
+    </ul>
+    <a class="btn btn-pri btn-sm" href="#contacto">Escríbeme<span class="c"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="miter" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú"><svg class="bars" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg><svg class="x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
   </div>
 </header>
 
 <main id="main">
+  <!-- hero: portrait on a plum disc, facts on both sides -->
   <section class="hero" aria-labelledby="hola">
     <div class="container">
       <div class="hero-head">
-        <span class="tagline"><img src="assets/logo/icono.svg" alt="" width="10" height="18">Diseñador de marca y web · Medellín, Colombia</span>
+        <span class="hello"><img src="assets/logo/icono.svg" alt="" width="12" height="21">Hola, soy David</span>
         <h1 id="hola">Diseño marcas que conectan <em>empresas con personas.</em></h1>
       </div>
-      <div class="hero-stage">
-        <span class="status"><i aria-hidden="true"></i>Disponible para nuevos proyectos</span>
-        <div class="portrait"><img src="assets/img/david-color.png" alt="Retrato a color de David Londoño, de pie y de frente" width="844" height="1110" fetchpriority="high"></div>
-        <p class="lead">Diseño <b>campañas y sistemas de marca</b>, y construyo sitios en Webflow para marcas B2B, educación y cultura. 17 años de oficio, los más recientes en Magneto 365.</p>
-        <a class="peek" href="#trabajo"><span class="thumbs" aria-hidden="true"><img src="assets/img/mini/m-banco-agrario-1.jpg" alt="" width="48" height="48"><img src="assets/img/mini/s-worldskills-heroe.jpg" alt="" width="48" height="48"><img src="assets/img/mini/u-salon-artistas.jpg" alt="" width="48" height="48"></span><span><b>9 casos seleccionados</b>web, campañas, marca y editorial</span></a>
-        <div class="ctas">
-          <a class="btn btn-pri" href="#trabajo">Ver trabajo<span class="c"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="miter" aria-hidden="true"><path d="M12 4v15M6 13l6 6 6-6"/></svg></span></a>
-          <a class="btn btn-line" href="mailto:davidlond08@gmail.com">davidlond08@gmail.com</a>
+      <div class="stage">
+        <div class="side side-l">
+          <span class="mono">Diseñador de marca y web · Medellín</span>
+          <p class="lead">Diseño <b>campañas y sistemas de marca</b>, y construyo sitios en Webflow para marcas B2B, educación y cultura.</p>
+          <div class="stat"><b>300+</b><span>estudiantes formados en el SENA y la IUSH</span></div>
+        </div>
+        <div class="portrait"><img src="assets/img/david-color.png" alt="David Londoño, de pie y de frente, con camisa de cuadros azul" width="844" height="1110" fetchpriority="high"></div>
+        <div class="hero-ctas">
+          <a class="btn btn-pri" href="#proyectos">Ver proyectos<span class="c"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="miter" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a>
+          <a class="btn btn-light" href="#contacto">Escríbeme</a>
+        </div>
+        <div class="side side-r">
+          <div class="stat"><b>17 años</b><span>de oficio, de 2009 a hoy</span></div>
+          <span class="mono">Hoy en Magneto 365 · Diseñador B2B</span>
         </div>
       </div>
     </div>
   </section>
 
-  <div class="container">
-    <div class="proof">
-      <dl aria-label="Cifras">
-        <div><dt>años de diseño de marca</dt><dd>10+</dd></div>
-        <div><dt>estudiantes formados</dt><dd>300+</dd></div>
-        <div><dt>proyectos al año</dt><dd>21–40</dd></div>
-      </dl>
-      <ul class="clients" aria-label="Organizaciones para las que he diseñado">
-        <li>Magneto 365</li><li>SENA</li><li>WorldSkills</li><li>UdeA</li><li>Colombo</li>
-      </ul>
-    </div>
-  </div>
-
-  <section class="work container" id="trabajo" aria-labelledby="sel">
-    <div class="work-head">
-      <div><span class="eyebrow">01 / Trabajo seleccionado</span><h2 id="sel" class="h2">Casos, no piezas sueltas</h2></div>
-      <div class="filters" role="group" aria-label="Filtrar casos" hidden>
-        <button type="button" data-filter="todo" aria-pressed="true">Todo</button>
-        <button type="button" data-filter="web" aria-pressed="false">Web</button>
-        <button type="button" data-filter="campanas" aria-pressed="false">Campañas</button>
-        <button type="button" data-filter="marca" aria-pressed="false">Marca</button>
-        <button type="button" data-filter="editorial" aria-pressed="false">Editorial</button>
+  <!-- services: dark panel that overlaps the disc -->
+  <section class="services container" id="servicios" aria-labelledby="hago">
+    <div class="panel">
+      <div class="panel-head">
+        <div><span class="eyebrow">01 / Servicios</span><h2 id="hago" class="h2">Lo que <em>hago</em></h2></div>
+        <p>Tres frentes que se cruzan en casi todos los proyectos: la marca define el tono, la campaña lo pone a circular y el sitio lo vuelve útil.</p>
+      </div>
+      <div class="svc">
+        <a href="casos/sitio-magneto.html" class="rise">
+          <div class="top"><h3>Sitios web</h3><p>Maquetación en Webflow, responsive y lista para crecer.</p></div>
+          <div class="img faceta"><img src="assets/img/inicio/web-inicio.jpg" alt="Inicio del sitio corporativo de Magneto 365" loading="lazy"></div>
+          <span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="miter"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+        </a>
+        <a href="casos/ai-academy.html" class="on rise">
+          <div class="top"><h3>Campañas</h3><p>Lanzamientos y series para redes con un sistema que se repite.</p></div>
+          <div class="img faceta"><img src="assets/img/inicio/m-academy-carrusel-4.jpg" alt="Carrusel de la campaña Magneto 365 AI Academy" loading="lazy"></div>
+          <span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="miter"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+        </a>
+        <a href="casos/manual-marca.html" class="rise">
+          <div class="top"><h3>Sistemas de marca</h3><p>Manuales, plantillas y reglas que el equipo puede seguir solo.</p></div>
+          <div class="img faceta"><img src="assets/img/inicio/m-manual-marca.jpg" alt="Portada del manual de marca de Magneto 365 AI" loading="lazy" style="object-position:center"></div>
+          <span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="miter"><path d="M7 17L17 7M9 7h8v8"/></svg></span>
+        </a>
       </div>
     </div>
-
-    <div class="grid" id="casos" aria-live="polite">
-      <a class="case feature rise" data-cat="web" href="casos/sitio-magneto.html">
-        <div class="media"><img src="assets/img/web-inicio.jpg" alt="Inicio del sitio corporativo de Magneto 365" width="2000" height="1250" loading="lazy"></div>
-        <div class="info"><div><h3>Sitio corporativo Magneto 365</h3><p>Maquetación en Webflow · 15+ soluciones, 4 países, versión móvil</p></div><span class="yr">2026</span></div>
-      </a>
-      <a class="case side rise" data-cat="campanas" href="casos/coffee-break.html">
-        <div class="media"><img src="assets/img/m-banco-agrario-1.jpg" alt="Coffee Break con Banco Agrario, portada del carrusel" width="1120" height="1400" loading="lazy"></div>
-        <div class="info"><div><h3>Coffee Break</h3><p>Campaña en redes · videopodcast B2B</p></div><span class="yr">2026</span></div>
-      </a>
-      <a class="case side rise" data-cat="campanas" href="casos/ai-academy.html">
-        <div class="media"><img src="assets/img/m-academy-carrusel-4.jpg" alt="La IA no reemplaza al reclutador, Magneto 365 AI Academy" width="1400" height="1400" loading="lazy"></div>
-        <div class="info"><div><h3>Magneto 365 AI Academy</h3><p>Lanzamiento</p></div><span class="yr">2026</span></div>
-      </a>
-      <a class="case rise" data-cat="marca" href="casos/manual-marca.html">
-        <div class="media"><img src="assets/img/m-manual-marca.jpg" alt="Portada del manual de marca y marketing B2B de Magneto 365 AI" width="1400" height="787" loading="lazy" style="object-position:center"></div>
-        <div class="info"><div><h3>Manual de marca Magneto 365 AI</h3><p>Identidad · sistema de marca</p></div><span class="yr">2025</span></div>
-      </a>
-      <a class="case rise" data-cat="marca" href="casos/agentes-virtuales.html">
-        <div class="media"><img src="assets/casos/agentes-virtuales/slide-01.jpg" alt="Portada del ecosistema de agentes virtuales" width="1200" height="1200" loading="lazy"></div>
-        <div class="info"><div><h3>Ecosistema de agentes virtuales</h3><p>Producto · presentación de 21 láminas</p></div><span class="yr">2025</span></div>
-      </a>
-      <a class="case rise" data-cat="editorial" href="casos/worldskills-sena.html">
-        <div class="media"><img src="assets/img/s-worldskills-heroe.jpg" alt="Tarjeta Héroe de bienvenida a WorldSkills" width="934" height="1400" loading="lazy"></div>
-        <div class="info"><div><h3>WorldSkills Colombia · SENA</h3><p>Eventos · editorial · infografía</p></div><span class="yr">2015</span></div>
-      </a>
-      <a class="case extra" data-cat="editorial" href="casos/material-comercial.html">
-        <div class="media"><img src="assets/img/m-onepager-agentes.jpg" alt="One-pager del ecosistema de agentes de IA" loading="lazy"></div>
-        <div class="info"><div><h3>One-pagers comerciales</h3><p>Editorial B2B</p></div><span class="yr">2025</span></div>
-      </a>
-      <a class="case extra" data-cat="editorial" href="casos/ebook-mundial.html">
-        <div class="media"><img src="assets/img/m-ebook-mundial.jpg" alt="E-book Colombia vuelve al Mundial" loading="lazy"></div>
-        <div class="info"><div><h3>E-book «Colombia vuelve al Mundial»</h3><p>Contenido · editorial</p></div><span class="yr">2026</span></div>
-      </a>
-      <a class="case extra" data-cat="campanas" href="casos/archivo.html">
-        <div class="media"><img src="assets/img/c-hollywood.jpg" alt="Afiche Estrellas doradas de Hollywood" loading="lazy"></div>
-        <div class="info"><div><h3>Archivo 2009–2016</h3><p>Afiches de cine, teatro, música y congresos</p></div><span class="yr">2009</span></div>
-      </a>
-    </div>
-    <div class="more" hidden>
-      <button class="btn btn-line" type="button" aria-controls="casos" aria-expanded="false">Ver los 9 casos y el archivo 2009–2016<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="miter" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></button>
+    <div class="proof">
+      <span class="label">Organizaciones para las que he diseñado</span>
+      <ul aria-label="Organizaciones"><li>Magneto 365</li><li>SENA</li><li>WorldSkills</li><li>UdeA</li><li>Colombo Americano</li><li>IUSH</li></ul>
     </div>
   </section>
 
-  <section class="process container" id="proceso" aria-labelledby="como">
-    <div class="panel">
-      <div class="panel-head">
-        <div><span class="eyebrow">02 / Cómo trabajo</span><h2 id="como" class="h2">Así se <em>construye</em> un sistema</h2></div>
-        <p>Lo aprendí enseñando a más de 300 estudiantes: una buena pieza se puede explicar, repetir y escalar.</p>
+  <!-- projects: list rows -->
+  <section class="projects container" id="proyectos" aria-labelledby="casos">
+    <div class="sec-head">
+      <div><span class="eyebrow">02 / Proyectos recientes</span><h2 id="casos" class="h2">Casos, no <em>piezas sueltas</em></h2></div>
+      <p>Cada caso cuenta el reto, lo que hice y por qué funciona. Estos son los nueve publicados.</p>
+    </div>
+    <ol class="rows">
+      <li><a class="row rise" href="casos/sitio-magneto.html">
+        <div class="thumb faceta"><img src="assets/img/inicio/web-inicio.jpg" alt="" loading="lazy"></div>
+        <div><span class="cat">Web · Webflow</span><h3>Sitio corporativo Magneto 365</h3><p>Más de 15 soluciones y 4 países en un mismo sistema de páginas, con versión móvil completa.</p></div>
+        <span class="yr">2025 – 2026</span>
+        <span class="view">Ver<i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="miter" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></i></span>
+      </a></li>
+      <li><a class="row rise" href="casos/coffee-break.html">
+        <div class="thumb faceta"><img src="assets/img/inicio/m-banco-agrario-1.jpg" alt="" loading="lazy"></div>
+        <div><span class="cat">Campaña · Redes</span><h3>Coffee Break</h3><p>Carruseles para un videopodcast B2B: casos de éxito que se leen como historias.</p></div>
+        <span class="yr">2026</span>
+        <span class="view">Ver<i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="miter" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></i></span>
+      </a></li>
+      <li><a class="row rise" href="casos/ai-academy.html">
+        <div class="thumb faceta"><img src="assets/img/inicio/m-academy-carrusel-4.jpg" alt="" loading="lazy"></div>
+        <div><span class="cat">Lanzamiento</span><h3>Magneto 365 AI Academy</h3><p>Una academia lanzada en tres tiempos: expectativa, lanzamiento e inscripción.</p></div>
+        <span class="yr">2026</span>
+        <span class="view">Ver<i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="miter" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></i></span>
+      </a></li>
+      <li><a class="row rise" href="casos/manual-marca.html">
+        <div class="thumb faceta"><img src="assets/img/inicio/m-manual-marca.jpg" alt="" loading="lazy" style="object-position:center"></div>
+        <div><span class="cat">Identidad · Sistema de marca</span><h3>Manual de marca Magneto 365 AI</h3><p>Estrategia antes que forma: misión, customer journey y después logo, color y tipografía.</p></div>
+        <span class="yr">2025</span>
+        <span class="view">Ver<i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="miter" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></i></span>
+      </a></li>
+      <li><a class="row rise" href="casos/agentes-virtuales.html">
+        <div class="thumb faceta"><img src="assets/img/inicio/m-agentes-virtuales.jpg" alt="" loading="lazy"></div>
+        <div><span class="cat">Producto · Presentación</span><h3>Ecosistema de agentes virtuales</h3><p>21 láminas para explicar once agentes de IA con un personaje y una plantilla.</p></div>
+        <span class="yr">2025</span>
+        <span class="view">Ver<i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="miter" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></i></span>
+      </a></li>
+      <li><a class="row rise" href="casos/worldskills-sena.html">
+        <div class="thumb faceta"><img src="assets/img/inicio/s-worldskills-heroe.jpg" alt="" loading="lazy"></div>
+        <div><span class="cat">Eventos · Editorial</span><h3>WorldSkills Colombia · SENA</h3><p>Tarjetas de bienvenida con lenguaje de cómic, postal y piezas editoriales.</p></div>
+        <span class="yr">2013 – 2016</span>
+        <span class="view">Ver<i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="miter" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></i></span>
+      </a></li>
+      <li><a class="row rise" href="casos/material-comercial.html">
+        <div class="thumb faceta"><img src="assets/img/inicio/m-onepager-agentes.jpg" alt="" loading="lazy"></div>
+        <div><span class="cat">Editorial B2B</span><h3>One-pagers comerciales</h3><p>Una familia de documentos que responde las mismas tres preguntas: problema, funcionamiento e impacto.</p></div>
+        <span class="yr">2025</span>
+        <span class="view">Ver<i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="miter" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></i></span>
+      </a></li>
+      <li><a class="row rise" href="casos/ebook-mundial.html">
+        <div class="thumb faceta"><img src="assets/img/inicio/m-ebook-mundial.jpg" alt="" loading="lazy"></div>
+        <div><span class="cat">Contenido · Editorial</span><h3>E-book «Colombia vuelve al Mundial»</h3><p>La conversación de todo el país convertida en una pregunta de recursos humanos.</p></div>
+        <span class="yr">2026</span>
+        <span class="view">Ver<i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="miter" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></i></span>
+      </a></li>
+      <li><a class="row rise" href="casos/archivo.html">
+        <div class="thumb faceta"><img src="assets/img/inicio/c-hollywood.jpg" alt="" loading="lazy"></div>
+        <div><span class="cat">Afiches · Archivo</span><h3>Archivo 2009–2016</h3><p>Afiches de cine, teatro, música y congresos para la UdeA y el Colombo Americano.</p></div>
+        <span class="yr">2009 – 2016</span>
+        <span class="view">Ver<i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="miter" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></i></span>
+      </a></li>
+    </ol>
+  </section>
+
+  <!-- behind the pieces: three tall images -->
+  <section class="behind container" aria-labelledby="detras">
+    <div class="sec-head">
+      <div><span class="eyebrow">03 / Detrás de cada pieza</span><h2 id="detras" class="h2">Del afiche al sitio, <em>el mismo oficio</em></h2></div>
+      <div><p>Empecé diseñando afiches de cine y teatro en 2009. Hoy diseño sistemas completos. Lo que no cambia es la pregunta: qué tiene que entender quien lo mira.</p></div>
+    </div>
+    <div class="tall">
+      <figure class="rise"><div class="img faceta"><img src="assets/img/inicio/c-hollywood.jpg" alt="Afiche Estrellas doradas de Hollywood" loading="lazy"></div><figcaption><b>Archivo de afiches</b>2009 – 2016 · Cine, teatro y música</figcaption></figure>
+      <figure class="rise"><div class="img faceta"><img src="assets/img/inicio/s-periodico.jpg" alt="Portada del periódico regional del SENA" loading="lazy"></div><figcaption><b>Editorial SENA</b>2013 – 2016 · Periódico regional</figcaption></figure>
+      <figure class="rise"><div class="img faceta"><img src="assets/img/inicio/m-ebook-mundial.jpg" alt="Portada del e-book Colombia vuelve al Mundial" loading="lazy"></div><figcaption><b>E-book «Colombia vuelve al Mundial»</b>2026 · Contenido B2B</figcaption></figure>
+    </div>
+  </section>
+
+  <!-- trajectory: dotted timeline -->
+  <section class="path container" id="trayectoria" aria-labelledby="tray">
+    <div class="sec-head"><div><span class="eyebrow">04 / Trayectoria</span><h2 id="tray" class="h2">De 2009 a <em>2026</em></h2></div></div>
+    <ol class="tl">
+      <li class="now rise"><div class="org"><b>Magneto 365</b><span>2025 – 2026</span></div><span class="dot" aria-hidden="true"></span><div class="role"><b>Diseñador B2B</b><p>Sitio en Webflow, marca, campañas y material comercial.</p></div></li>
+      <li class="rise"><div class="org"><b>SENA · IUSH</b><span>2017 – 2024</span></div><span class="dot" aria-hidden="true"></span><div class="role"><b>Instructor y docente</b><p>Marca, UX/UI y diseño responsive. Más de 300 estudiantes formados.</p></div></li>
+      <li class="rise"><div class="org"><b>SENA Regional Antioquia</b><span>2013 – 2016</span></div><span class="dot" aria-hidden="true"></span><div class="role"><b>Editorial, campañas y eventos</b><p>Periódico regional, boletines y WorldSkills Colombia.</p></div></li>
+      <li class="rise"><div class="org"><b>UdeA · Colombo Americano</b><span>2009 – 2013</span></div><span class="dot" aria-hidden="true"></span><div class="role"><b>Afiches académicos y culturales</b><p>Cine, teatro, música y congresos.</p></div></li>
+    </ol>
+  </section>
+
+  <!-- ribbon -->
+  <div class="ribbon" aria-hidden="true">
+    <div class="band">
+      <div class="track"><span>Identidad</span><img src="assets/logo/icono.svg" alt=""><span>Campañas</span><img src="assets/logo/icono.svg" alt=""><span>Webflow</span><img src="assets/logo/icono.svg" alt=""><span>Editorial</span><img src="assets/logo/icono.svg" alt=""><span>Sistemas de marca</span><img src="assets/logo/icono.svg" alt=""><span>Docencia</span><img src="assets/logo/icono.svg" alt=""></div>
+      <div class="track"><span>Identidad</span><img src="assets/logo/icono.svg" alt=""><span>Campañas</span><img src="assets/logo/icono.svg" alt=""><span>Webflow</span><img src="assets/logo/icono.svg" alt=""><span>Editorial</span><img src="assets/logo/icono.svg" alt=""><span>Sistemas de marca</span><img src="assets/logo/icono.svg" alt=""><span>Docencia</span><img src="assets/logo/icono.svg" alt=""></div>
+    </div>
+  </div>
+
+  <!-- process -->
+  <section class="process container" id="proceso" aria-labelledby="pasos">
+    <div class="proc">
+      <div class="sec-head">
+        <div><span class="eyebrow">05 / Proceso</span><h2 id="pasos" class="h2">Mi proceso, <em>paso a paso</em></h2></div>
+        <p>Lo aprendí enseñando: una buena pieza se puede explicar, repetir y escalar.</p>
       </div>
       <ol class="steps">
-        <li class="step"><div class="top-row"><span class="n">01</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="miter" aria-hidden="true"><path d="M10.5 4a6.5 6.5 0 1 0 0 13 6.5 6.5 0 1 0 0-13zM15.2 15.2L21 21"/></svg></div><h3>Entender</h3><p>Escucho al negocio, a los usuarios y al equipo comercial antes de abrir Figma.</p></li>
-        <li class="step"><div class="top-row"><span class="n">02</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="miter" aria-hidden="true"><path d="M5 19l2-6 8-8 4 4-8 8zM13 7l4 4M5 19l4-1"/></svg></div><h3>Diseñar</h3><p>Exploro direcciones, uso la IA para ampliar opciones y decido con criterio.</p></li>
-        <li class="step"><div class="top-row"><span class="n">03</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="miter" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5zM3 12.5l9 5 9-5M3 17l9 5 9-5"/></svg></div><h3>Sistematizar</h3><p>Convierto la solución en plantillas, componentes y manuales que el equipo puede seguir.</p></li>
+        <li class="rise"><div class="n">01<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="miter" aria-hidden="true"><path d="M10.5 4a6.5 6.5 0 1 0 0 13 6.5 6.5 0 1 0 0-13zM15.2 15.2L21 21"/></svg></div><h3>Entender</h3><p>Escucho al negocio, a los usuarios y al equipo comercial antes de abrir Figma.</p></li>
+        <li class="rise"><div class="n">02<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="miter" aria-hidden="true"><path d="M5 19l2-6 8-8 4 4-8 8zM13 7l4 4M5 19l4-1"/></svg></div><h3>Diseñar</h3><p>Exploro direcciones, uso la IA para ampliar opciones y decido con criterio.</p></li>
+        <li class="rise"><div class="n">03<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="miter" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5zM3 12.5l9 5 9-5M3 17l9 5 9-5"/></svg></div><h3>Sistematizar</h3><p>Convierto la solución en plantillas, componentes y manuales que el equipo puede seguir.</p></li>
       </ol>
     </div>
   </section>
 
-  <section class="timeline container" id="trayectoria" aria-labelledby="tl">
-    <span class="eyebrow">03 / Trayectoria</span>
-    <h2 id="tl" class="years" aria-label="De 2009 a 2026"><span>2009</span><i aria-hidden="true"></i><span>2026</span></h2>
-    <ol class="stages">
-      <li class="stage rise"><div class="when">2009–2013</div><div class="thumb"><img src="assets/img/c-hollywood.jpg" alt="" width="1238" height="1400" loading="lazy"></div><h3>UdeA · Colombo Americano</h3><p>Afiches académicos y culturales: cine, teatro, música, congresos.</p></li>
-      <li class="stage rise"><div class="when">2013–2016</div><div class="thumb"><img src="assets/img/s-periodico.jpg" alt="" width="1657" height="2000" loading="lazy"></div><h3>SENA Regional Antioquia</h3><p>Editorial, campañas y eventos, incluido WorldSkills Colombia.</p></li>
-      <li class="stage rise"><div class="when">2017–2024</div><div class="thumb text" aria-hidden="true">300+ estudiantes</div><h3>SENA · IUSH (docencia)</h3><p>Instructor y docente: marca, UX/UI y diseño responsive.</p></li>
-      <li class="stage now rise"><div class="when">2025–2026 <span class="badge">Reciente</span></div><div class="thumb"><img src="assets/img/m-agentes-virtuales.jpg" alt="" width="1400" height="1400" loading="lazy"></div><h3>Magneto 365 · Diseñador B2B</h3><p>Sitio en Webflow, marca, campañas y material comercial B2B.</p></li>
-    </ol>
+  <!-- about -->
+  <section class="about container" id="perfil" aria-labelledby="sobre">
+    <div>
+      <span class="eyebrow">06 / Perfil</span>
+      <h2 id="sobre" class="h2">Diseñador que <em>también enseña</em></h2>
+      <p class="intro">Diseñador visual y especialista en Gerencia de Marca, con más de diez años entre el estudio y el aula.</p>
+      <p class="body">Fui instructor en el SENA (2017–2024) y docente de cátedra en la IUSH (2020–2024). Esa práctica de explicar, ordenar y estandarizar es la que hoy aplico a los sistemas de marca. Integro la IA generativa (ChatGPT, Claude y Claude Code) con criterio editorial y validación humana.</p>
+      <ul class="chips" aria-label="Herramientas"><li>Illustrator</li><li>Photoshop</li><li>InDesign</li><li>After Effects</li><li>Figma</li><li>Webflow</li><li>HTML/CSS</li><li>Claude Code</li></ul>
+      <div class="btns">
+        <a class="btn btn-line" href="assets/David-Londono-Hoja-de-Vida.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="miter" aria-hidden="true"><path d="M12 3v12M6 10l6 6 6-6M4 20h16"/></svg>Hoja de vida (PDF)</a>
+      </div>
+    </div>
+    <div class="photo faceta rise"><img src="assets/img/inicio/david-sentado.jpg" alt="David Londoño sentado, sonriendo, con camisa de cuadros azul" loading="lazy" width="1122" height="1400"></div>
   </section>
 
-  <section class="profile container" id="perfil" aria-labelledby="perf">
-    <div class="photo"><img src="assets/img/david-color.png" alt="Retrato a color de David Londoño, de pie y de frente" width="844" height="1110" loading="lazy"></div>
-    <div>
-      <span class="eyebrow">04 / Perfil</span>
-      <h2 id="perf" class="h2">Diseñador que <em>también enseña</em></h2>
-      <p><b>Diseñador visual y especialista en Gerencia de Marca</b>, con más de diez años entre el estudio y el aula. Fui instructor en el SENA (2017–2024) y docente de cátedra en la IUSH (2020–2024), donde formé a más de 300 estudiantes.</p>
-      <p>Esa práctica de explicar, ordenar y estandarizar es la que hoy aplico a los sistemas de marca. Integro la IA generativa (ChatGPT, Claude y Claude Code) con criterio editorial y validación humana.</p>
-      <ul class="chips" aria-label="Herramientas"><li>Illustrator</li><li>Photoshop</li><li>InDesign</li><li>After Effects</li><li>Figma</li><li>Webflow</li><li>HTML/CSS</li><li>Claude Code</li></ul>
-      <a class="btn btn-line cv" href="assets/David-Londono-Hoja-de-Vida.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="miter" aria-hidden="true"><path d="M12 3v12M6 10l6 6 6-6M4 20h16"/></svg>Descargar hoja de vida (PDF, 1,9 MB)</a>
+  <!-- contact -->
+  <section class="contact container" id="contacto" aria-labelledby="hablemos">
+    <span class="eyebrow">07 / Contacto</span>
+    <h2 id="hablemos" class="h2">¿Tienes un proyecto en mente? <em>Hablemos.</em></h2>
+    <a class="mailbox" href="mailto:davidlond08@gmail.com">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="miter" aria-hidden="true"><path d="M3 5h18v14H3zM3 5l9 8 9-8"/></svg>
+      <span class="addr">davidlond08@gmail.com</span>
+      <span class="btn btn-pri btn-sm" aria-hidden="true">Escribir<span class="c"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="miter"><path d="M7 17L17 7M9 7h8v8"/></svg></span></span>
+    </a>
+    <div class="alt">
+      <a href="https://wa.me/573193610678">WhatsApp +57 319 361 0678</a>
+      <a href="https://www.linkedin.com/in/david-londoño-r">LinkedIn</a>
+      <a href="https://www.behance.net/davidlr18">Behance</a>
     </div>
   </section>
 </main>
 
-<footer class="foot" id="contacto">
+<footer class="foot">
   <div class="container">
-    <span class="eyebrow">05 / Contacto</span>
-    <h2>¿Diseñamos <em>lo que sigue?</em></h2>
-    <div class="ctas">
-      <a class="btn btn-pri" href="mailto:davidlond08@gmail.com">davidlond08@gmail.com<span class="c"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="miter" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a>
-      <a class="btn btn-line" href="https://wa.me/573193610678"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="miter" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>WhatsApp</a>
+    <div class="row1">
+      <img src="assets/logo/logo-negativo.svg" alt="David Londoño R." width="139" height="34">
+      <nav aria-label="Pie"><a href="#servicios">Servicios</a><a href="#proyectos">Proyectos</a><a href="#trayectoria">Trayectoria</a><a href="#perfil">Perfil</a><a href="#contacto">Contacto</a></nav>
     </div>
-    <div class="row">
-      <img src="assets/logo/logo.svg" alt="David Londoño R." width="123" height="30">
-      <nav aria-label="Redes"><a href="assets/David-Londono-Hoja-de-Vida.pdf" download>Hoja de vida</a><a href="https://www.behance.net/davidlr18">Behance</a><a href="https://www.linkedin.com/in/david-londoño-r">LinkedIn</a><a href="tel:+573193610678">+57 319 361 0678</a></nav>
-      <span>© 2026 · Medellín, Colombia</span>
-    </div>
+    <div class="row2"><span>© 2026 · Medellín, Colombia</span><span>Diseño y código: David Londoño R.</span></div>
   </div>
 </footer>
 
-<script>
-// header: solid background once you scroll, mobile menu, current section
-const top_=document.getElementById('top'),menuBtn=top_.querySelector('.menu-btn'),navLinks=[...top_.querySelectorAll('nav > a')];
-const onScroll=()=>top_.classList.toggle('scrolled',scrollY>8);
-addEventListener('scroll',onScroll,{passive:true});onScroll();
-const setMenu=open=>{top_.classList.toggle('open',open);menuBtn.setAttribute('aria-expanded',open);menuBtn.setAttribute('aria-label',open?'Cerrar menú':'Abrir menú')};
-menuBtn.addEventListener('click',()=>setMenu(!top_.classList.contains('open')));
-top_.querySelector('nav').addEventListener('click',e=>{if(e.target.closest('a'))setMenu(false)});
-addEventListener('keydown',e=>{if(e.key==='Escape'&&top_.classList.contains('open')){setMenu(false);menuBtn.focus()}});
-addEventListener('click',e=>{if(top_.classList.contains('open')&&!top_.contains(e.target))setMenu(false)});
-const sections=navLinks.map(a=>document.querySelector(a.hash));
-const markCurrent=()=>{
-  const line=innerHeight*.35;let current=null;
-  sections.forEach((s,i)=>{const r=s.getBoundingClientRect();if(r.top<=line&&r.bottom>line)current=navLinks[i]});
-  navLinks.forEach(a=>a===current?a.setAttribute('aria-current','true'):a.removeAttribute('aria-current'));
-};
-addEventListener('scroll',markCurrent,{passive:true});markCurrent();
-
-// cases: filters + "ver más" (without JS every case stays visible)
-const grid=document.getElementById('casos'),cases=[...grid.querySelectorAll('.case')],
-      filters=document.querySelector('.filters'),more=document.querySelector('.more'),moreBtn=more.querySelector('button');
-let expanded=false,current='todo';
-const render=()=>{
-  const all=current==='todo';
-  grid.classList.toggle('is-filtered',!all);
-  cases.forEach(c=>{c.hidden=all?(!expanded&&c.classList.contains('extra')):c.dataset.cat!==current});
-  more.hidden=!all||expanded;
-};
-filters.hidden=false;
-filters.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
-  current=b.dataset.filter;filters.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));render()});
-moreBtn.addEventListener('click',()=>{expanded=true;moreBtn.setAttribute('aria-expanded','true');render();cases.find(c=>c.classList.contains('extra'))?.focus()});
-render();
-
-// one entrance, staggered in reading order
-const io=new IntersectionObserver(es=>es.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('in'),i*110);io.unobserve(e.target)}}),{rootMargin:'0px 0px -8% 0px'});
-document.querySelectorAll('.rise').forEach(el=>io.observe(el));
-</script>
+<script src="assets/js/inicio.js" defer></script>
 </body>
 </html>

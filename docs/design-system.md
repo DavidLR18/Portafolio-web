@@ -1,9 +1,10 @@
 # Design system — David Londoño R. portfolio
 
-Version 2.0 · November 2026
+Version 2.1 · November 2026
 
 - **Brand source of truth:** `marca/manual-de-marca.html` (PDF in `marca/manual-de-marca.pdf`). This file translates it into code rules.
-- **Source of truth for values:** the `@layer tokens` block in `sitio/index.html` and the `:root` block in `sitio/assets/css/caso.css`. Both carry the same values. If this file and the CSS disagree, the CSS wins and this file gets fixed.
+- **Source of truth for values:** the `@layer tokens` block in `sitio/assets/css/inicio.css` (home page) and the `:root` block in `sitio/assets/css/caso.css` (case pages). Both carry the same values.
+- **Home page (v2.1):** the layout designed in `portafolio-v2/` now ships as `sitio/index.html` with `assets/css/inicio.css` and `assets/js/inicio.js`. Its Pencil file is `portafolio-v2/diseño/portafolio-v2.pen`. If this file and the CSS disagree, the CSS wins and this file gets fixed.
 - **UI copy** is Spanish (es-CO). Code, comments and this document are English.
 
 ## Principles
@@ -115,6 +116,9 @@ Inline SVG on a 24 px grid: stroke 1.75, `stroke-linejoin="miter"`, butt caps, `
 
 ## Components
 
+Home page v2.1 sections, in order: floating dark nav (`.nav`), hero with the portrait on a plum disc (`.hero`, `.stage`, `.portrait`), services panel that overlaps the disc (`.services`, `.svc`), proof band, project rows (`.rows`, `.row`, all nine cases), three tall images (`.behind`, `.tall`), dotted timeline (`.tl`), plum ribbon (`.ribbon`), process (`.proc`, `.steps`), profile with the seated photo (`.about`) and contact with the email pill (`.mailbox`). The table below still describes the case pages and shared rules.
+
+
 | Component | Class | Rules |
 |---|---|---|
 | Primary button | `.btn.btn-pri` | Plum pill, label then the arrow in a white 40 px disc. One per zone (hero, footer, case footer). |
@@ -146,7 +150,7 @@ Skip link, landmarks, visible 3 px Cobalto focus ring, 46–56 px touch targets 
 
 ## Changing the system
 
-1. Change the token in `sitio/index.html` and `sitio/assets/css/caso.css`.
+1. Change the token in `sitio/assets/css/inicio.css` and `sitio/assets/css/caso.css`.
 2. Case markup comes from `herramientas/generar-casos.pl`; edit the template there and run it, never the generated HTML.
 3. Update `marca/manual-de-marca.html`, re-export its PDF, and update this file (contrast table included).
 
